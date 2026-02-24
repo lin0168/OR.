@@ -777,6 +777,58 @@ Multiple R-squared:  <span class="hljs-number">0.7882</span>,	Adjusted R-squared
 [<span class="hljs-number">3</span>,] <span class="hljs-number">0.4247572</span>
 </div></code></pre>
 <hr>
+<h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%8F%E1%9E%B8-%E1%9F%A2%E1%9F%A7">លំហាត់តី ២៧</h2>
+<pre class="hljs"><code><div>&gt;x1=c(<span class="hljs-number">3.245</span>, <span class="hljs-number">3.278</span>, <span class="hljs-number">3.52</span>, <span class="hljs-number">3.74</span>, <span class="hljs-number">3.52</span>, <span class="hljs-number">3.421</span>, <span class="hljs-number">3.41</span>, <span class="hljs-number">3.63</span>, <span class="hljs-number">3.355</span>, <span class="hljs-number">3.08</span>, <span class="hljs-number">3.025</span>, <span class="hljs-number">3.146</span>, <span class="hljs-number">3.465</span>, <span class="hljs-number">3.245</span>, <span class="hljs-number">3.025</span>)
+&gt; x2=c(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+ 
+&gt; y=c(<span class="hljs-number">31.5</span>, <span class="hljs-number">33</span>, <span class="hljs-number">34.1</span>, <span class="hljs-number">35.4</span>, <span class="hljs-number">34.2</span>, <span class="hljs-number">34</span>, <span class="hljs-number">34.5</span>, <span class="hljs-number">35</span>, <span class="hljs-number">34.7</span>, <span class="hljs-number">32.5</span>, <span class="hljs-number">31.5</span>, <span class="hljs-number">32.2</span>, <span class="hljs-number">34</span>, <span class="hljs-number">32.8</span>, <span class="hljs-number">31.8</span>)
+&gt; x=matrix(c(rep(<span class="hljs-number">1</span>,<span class="hljs-number">15</span>),x1,x2),ncol=<span class="hljs-number">3</span>,nrow=<span class="hljs-number">15</span>)
+&gt; x
+      [,<span class="hljs-number">1</span>]  [,<span class="hljs-number">2</span>] [,<span class="hljs-number">3</span>]
+ [<span class="hljs-number">1</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.245</span>    <span class="hljs-number">0</span>
+ [<span class="hljs-number">2</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.278</span>    <span class="hljs-number">0</span>
+ [<span class="hljs-number">3</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.520</span>    <span class="hljs-number">1</span>
+ [<span class="hljs-number">4</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.740</span>    <span class="hljs-number">1</span>
+ [<span class="hljs-number">5</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.520</span>    <span class="hljs-number">1</span>
+ [<span class="hljs-number">6</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.421</span>    <span class="hljs-number">1</span>
+ [<span class="hljs-number">7</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.410</span>    <span class="hljs-number">1</span>
+ [<span class="hljs-number">8</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.630</span>    <span class="hljs-number">1</span>
+ [<span class="hljs-number">9</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.355</span>    <span class="hljs-number">1</span>
+[<span class="hljs-number">10</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.080</span>    <span class="hljs-number">0</span>
+[<span class="hljs-number">11</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.025</span>    <span class="hljs-number">0</span>
+[<span class="hljs-number">12</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.146</span>    <span class="hljs-number">0</span>
+[<span class="hljs-number">13</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.465</span>    <span class="hljs-number">1</span>
+[<span class="hljs-number">14</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.245</span>    <span class="hljs-number">0</span>
+[<span class="hljs-number">15</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">3.025</span>    <span class="hljs-number">0</span>
+
+&gt; xx=t(x)%*%x
+&gt; xx
+       [,<span class="hljs-number">1</span>]     [,<span class="hljs-number">2</span>]   [,<span class="hljs-number">3</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">15.000</span>  <span class="hljs-number">50.1050</span>  <span class="hljs-number">8.000</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">50.105</span> <span class="hljs-number">168.0292</span> <span class="hljs-number">28.061</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">8.000</span>  <span class="hljs-number">28.0610</span>  <span class="hljs-number">8.000</span>
+
+&gt; solve(xx)
+           [,<span class="hljs-number">1</span>]       [,<span class="hljs-number">2</span>]       [,<span class="hljs-number">3</span>]
+[<span class="hljs-number">1</span>,]  <span class="hljs-number">54.626215</span> -<span class="hljs-number">17.301012</span>  <span class="hljs-number">6.0592467</span>
+[<span class="hljs-number">2</span>,] -<span class="hljs-number">17.301012</span>   <span class="hljs-number">5.493880</span> -<span class="hljs-number">1.9694578</span>
+[<span class="hljs-number">3</span>,]   <span class="hljs-number">6.059247</span>  -<span class="hljs-number">1.969458</span>  <span class="hljs-number">0.9738726</span>
+ 
+&gt; xy=t(x)%*%y
+&gt; xy
+         [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,]  <span class="hljs-number">501.200</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">1677.761</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">275.900</span>
+
+&gt; bete=solve(xx)%*%xy
+&gt; bete
+          [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">23.447375</span>
+[<span class="hljs-number">2</span>,]  <span class="hljs-number">2.774831</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">1.307058</span>
+</div></code></pre>
+<hr>
 <link rel="stylesheet" href="style.css">
 </body>
 </html>
