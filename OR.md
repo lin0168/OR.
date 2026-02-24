@@ -400,10 +400,11 @@ F-statistic: 11.16 on 2 and 6 DF,  p-value: 0.0095
 ---
 ## លំហាត់ទី ២៨
 ```R
+|
+|
+|
+```
 
-
-
-<link rel="stylesheet" href="style.css">
 
 
 
