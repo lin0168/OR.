@@ -1,4 +1,4 @@
-## លំហាត់ទី ២២## លំហាត់ទី ២២
+## លំហាត់ទី ២២
 ---
 
 ```R
@@ -400,3 +400,4 @@ F-statistic: 11.16 on 2 and 6 DF,  p-value: 0.0095
 ---
 
 <link rel="stylesheet" href="style.css">
+
