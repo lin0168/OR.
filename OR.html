@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>OR.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A2">លំហាត់ទី ២២</h2>
+<hr>
+<pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">532</span>,<span class="hljs-number">478</span>,<span class="hljs-number">530</span>,<span class="hljs-number">508</span>,<span class="hljs-number">514</span>,<span class="hljs-number">556</span>,<span class="hljs-number">541</span>,<span class="hljs-number">513</span>,<span class="hljs-number">532</span>,<span class="hljs-number">537</span>,<span class="hljs-number">499</span>,<span class="hljs-number">510</span>,<span class="hljs-number">490</span>,<span class="hljs-number">516</span>,<span class="hljs-number">482</span>)
+&gt; x2=c(<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">7</span>,<span class="hljs-number">7</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">8</span>,<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">7</span>)
+&gt; x3=c(<span class="hljs-number">44</span>,<span class="hljs-number">51</span>,<span class="hljs-number">45</span>,<span class="hljs-number">46</span>,<span class="hljs-number">44</span>,<span class="hljs-number">46</span>,<span class="hljs-number">49</span>,<span class="hljs-number">52</span>,<span class="hljs-number">46</span>,<span class="hljs-number">46</span>,<span class="hljs-number">48</span>,<span class="hljs-number">47</span>,<span class="hljs-number">48</span>,<span class="hljs-number">45</span>,<span class="hljs-number">43</span>)
+&gt;
+&gt; y=c(<span class="hljs-number">1840</span>,<span class="hljs-number">1746</span>,<span class="hljs-number">1812</span>,<span class="hljs-number">1806</span>,<span class="hljs-number">1792</span>,<span class="hljs-number">1825</span>,<span class="hljs-number">1811</span>,<span class="hljs-number">1803</span>,<span class="hljs-number">1830</span>,<span class="hljs-number">1827</span>,<span class="hljs-number">1764</span>,<span class="hljs-number">1825</span>,<span class="hljs-number">1763</span>,<span class="hljs-number">1846</span>,<span class="hljs-number">1815</span>)
+&gt; x=matrix(c(rep (<span class="hljs-number">1</span>,<span class="hljs-number">15</span>),x1,x2,x3), ncol=<span class="hljs-number">4</span>,nrow=<span class="hljs-number">15</span>)
+&gt; x
+      [,<span class="hljs-number">1</span>] [,<span class="hljs-number">2</span>] [,<span class="hljs-number">3</span>] [,<span class="hljs-number">4</span>]
+ [<span class="hljs-number">1</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">532</span>    <span class="hljs-number">6</span>   <span class="hljs-number">44</span>
+ [<span class="hljs-number">2</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">478</span>    <span class="hljs-number">4</span>   <span class="hljs-number">51</span>
+ [<span class="hljs-number">3</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">530</span>    <span class="hljs-number">7</span>   <span class="hljs-number">45</span>
+ [<span class="hljs-number">4</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">508</span>    <span class="hljs-number">7</span>   <span class="hljs-number">46</span>
+ [<span class="hljs-number">5</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">514</span>    <span class="hljs-number">5</span>   <span class="hljs-number">44</span>
+ [<span class="hljs-number">6</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">556</span>    <span class="hljs-number">6</span>   <span class="hljs-number">46</span>
+ [<span class="hljs-number">7</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">541</span>    <span class="hljs-number">4</span>   <span class="hljs-number">49</span>
+ [<span class="hljs-number">8</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">513</span>    <span class="hljs-number">6</span>   <span class="hljs-number">52</span>
+ [<span class="hljs-number">9</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">532</span>    <span class="hljs-number">5</span>   <span class="hljs-number">46</span>
+[<span class="hljs-number">10</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">537</span>    <span class="hljs-number">5</span>   <span class="hljs-number">46</span>
+[<span class="hljs-number">11</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">499</span>    <span class="hljs-number">3</span>   <span class="hljs-number">48</span>
+[<span class="hljs-number">12</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">510</span>    <span class="hljs-number">8</span>   <span class="hljs-number">47</span>
+[<span class="hljs-number">13</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">490</span>    <span class="hljs-number">4</span>   <span class="hljs-number">48</span>
+[<span class="hljs-number">14</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">516</span>    <span class="hljs-number">8</span>   <span class="hljs-number">45</span>
+[<span class="hljs-number">15</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">482</span>    <span class="hljs-number">7</span>   <span class="hljs-number">43</span>
+
+&gt; xx=t (x)%*%x
+&gt; xx
+     [,<span class="hljs-number">1</span>]    [,<span class="hljs-number">2</span>]  [,<span class="hljs-number">3</span>]   [,<span class="hljs-number">4</span>]
+[<span class="hljs-number">1</span>,]   <span class="hljs-number">15</span>    <span class="hljs-number">7738</span>    <span class="hljs-number">85</span>    <span class="hljs-number">700</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">7738</span> <span class="hljs-number">3998828</span> <span class="hljs-number">43902</span> <span class="hljs-number">360943</span>
+[<span class="hljs-number">3</span>,]   <span class="hljs-number">85</span>   <span class="hljs-number">43902</span>   <span class="hljs-number">515</span>   <span class="hljs-number">3942</span>
+[<span class="hljs-number">4</span>,]  <span class="hljs-number">700</span>  <span class="hljs-number">360943</span>  <span class="hljs-number">3942</span>  <span class="hljs-number">32758</span>
+
+&gt; solve(xx)
+             [,<span class="hljs-number">1</span>]          [,<span class="hljs-number">2</span>]          [,<span class="hljs-number">3</span>]          [,<span class="hljs-number">4</span>]
+[<span class="hljs-number">1</span>,]  <span class="hljs-number">88.52271857</span> -<span class="hljs-number">8.781773e-02</span> -<span class="hljs-number">6.549371e-01</span> -<span class="hljs-number">0.8451965188</span>
+[<span class="hljs-number">2</span>,]  -<span class="hljs-number">0.08781773</span>  <span class="hljs-number">1.480315e-04</span> -<span class="hljs-number">5.068072e-05</span>  <span class="hljs-number">0.0002515805</span>
+[<span class="hljs-number">3</span>,]  -<span class="hljs-number">0.65493706</span> -<span class="hljs-number">5.068072e-05</span>  <span class="hljs-number">3.751051e-02</span>  <span class="hljs-number">0.0100397572</span>
+[<span class="hljs-number">4</span>,]  -<span class="hljs-number">0.84519652</span>  <span class="hljs-number">2.515805e-04</span>  <span class="hljs-number">1.003976e-02</span>  <span class="hljs-number">0.0141111974</span>
+
+&gt; xy=t (x)%*%y
+&gt; xy
+         [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,]    <span class="hljs-number">27105</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">13988635</span>
+[<span class="hljs-number">3</span>,]   <span class="hljs-number">154024</span>
+[<span class="hljs-number">4</span>,]  <span class="hljs-number">1264323</span>
+
+&gt; bete=solve(xx)%*%xy
+&gt; bete
+           [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">1480.7446116</span>
+[<span class="hljs-number">2</span>,]    <span class="hljs-number">0.7314989</span>
+[<span class="hljs-number">3</span>,]    <span class="hljs-number">9.9914874</span>
+[<span class="hljs-number">4</span>,]   -<span class="hljs-number">2.3082627</span>
+</div></code></pre>
+<hr>
+<h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A3">លំហាត់ទី ២៣</h2>
+<pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">140</span>,<span class="hljs-number">65</span>,<span class="hljs-number">130</span>,<span class="hljs-number">115</span>,<span class="hljs-number">390</span>,<span class="hljs-number">670</span>,<span class="hljs-number">205</span>,<span class="hljs-number">40</span>,<span class="hljs-number">480</span>,<span class="hljs-number">810</span>,<span class="hljs-number">120</span>,<span class="hljs-number">590</span>,<span class="hljs-number">440</span>,<span class="hljs-number">280</span>,<span class="hljs-number">650</span>,<span class="hljs-number">150</span>)
+&gt; x2=c(<span class="hljs-number">12</span>,<span class="hljs-number">21</span>,<span class="hljs-number">42</span>,<span class="hljs-number">80</span>,<span class="hljs-number">120</span>,<span class="hljs-number">64</span>,<span class="hljs-number">43</span>,<span class="hljs-number">14</span>,<span class="hljs-number">88</span>,<span class="hljs-number">98</span>,<span class="hljs-number">44</span>,<span class="hljs-number">110</span>,<span class="hljs-number">38</span>,<span class="hljs-number">24</span>,<span class="hljs-number">60</span>,<span class="hljs-number">24</span>)
+&gt; x3=c(<span class="hljs-number">1800</span> ,<span class="hljs-number">320</span>,<span class="hljs-number">820</span>,<span class="hljs-number">76</span>,<span class="hljs-number">3600</span>,<span class="hljs-number">8400</span>,<span class="hljs-number">508</span>,<span class="hljs-number">870</span>,<span class="hljs-number">5500</span>,<span class="hljs-number">9875</span>,<span class="hljs-number">6500</span>,<span class="hljs-number">9130</span>,<span class="hljs-number">1200</span>,<span class="hljs-number">890</span>,<span class="hljs-number">1200</span>,<span class="hljs-number">1300</span>)
+&gt; 
+&gt; y=c(<span class="hljs-number">2800</span>,<span class="hljs-number">1300</span>,<span class="hljs-number">1230</span>,<span class="hljs-number">1600</span>,<span class="hljs-number">4500</span>,<span class="hljs-number">5700</span>,<span class="hljs-number">3150</span>,<span class="hljs-number">640</span>,<span class="hljs-number">3400</span>,<span class="hljs-number">6700</span>,<span class="hljs-number">3700</span>,<span class="hljs-number">6440</span>,<span class="hljs-number">1280</span>,<span class="hljs-number">4160</span>,<span class="hljs-number">3870</span>,<span class="hljs-number">980</span>)
+&gt; x=matrix(c(rep(<span class="hljs-number">1</span>,<span class="hljs-number">16</span>),x1,x2,x3),ncol=<span class="hljs-number">4</span>,nrow=<span class="hljs-number">16</span>)
+&gt; x
+      [,<span class="hljs-number">1</span>] [,<span class="hljs-number">2</span>] [,<span class="hljs-number">3</span>] [,<span class="hljs-number">4</span>]
+ [<span class="hljs-number">1</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">140</span>   <span class="hljs-number">12</span> <span class="hljs-number">1800</span>
+ [<span class="hljs-number">2</span>,]    <span class="hljs-number">1</span>   <span class="hljs-number">65</span>   <span class="hljs-number">21</span>  <span class="hljs-number">320</span>
+ [<span class="hljs-number">3</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">130</span>   <span class="hljs-number">42</span>  <span class="hljs-number">820</span>
+ [<span class="hljs-number">4</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">115</span>   <span class="hljs-number">80</span>   <span class="hljs-number">76</span>
+ [<span class="hljs-number">5</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">390</span>  <span class="hljs-number">120</span> <span class="hljs-number">3600</span>
+ [<span class="hljs-number">6</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">670</span>   <span class="hljs-number">64</span> <span class="hljs-number">8400</span>
+ [<span class="hljs-number">7</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">205</span>   <span class="hljs-number">43</span>  <span class="hljs-number">508</span>
+ [<span class="hljs-number">8</span>,]    <span class="hljs-number">1</span>   <span class="hljs-number">40</span>   <span class="hljs-number">14</span>  <span class="hljs-number">870</span>
+ [<span class="hljs-number">9</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">480</span>   <span class="hljs-number">88</span> <span class="hljs-number">5500</span>
+[<span class="hljs-number">10</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">810</span>   <span class="hljs-number">98</span> <span class="hljs-number">9875</span>
+[<span class="hljs-number">11</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">120</span>   <span class="hljs-number">44</span> <span class="hljs-number">6500</span>
+[<span class="hljs-number">12</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">590</span>  <span class="hljs-number">110</span> <span class="hljs-number">9130</span>
+[<span class="hljs-number">13</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">440</span>   <span class="hljs-number">38</span> <span class="hljs-number">1200</span>
+[<span class="hljs-number">14</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">280</span>   <span class="hljs-number">24</span>  <span class="hljs-number">890</span>
+[<span class="hljs-number">15</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">650</span>   <span class="hljs-number">60</span> <span class="hljs-number">1200</span>
+[<span class="hljs-number">16</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">150</span>   <span class="hljs-number">24</span> <span class="hljs-number">1300</span>
+
+&gt; xx=t(x)%*%x
+&gt; xx
+      [,<span class="hljs-number">1</span>]     [,<span class="hljs-number">2</span>]    [,<span class="hljs-number">3</span>]      [,<span class="hljs-number">4</span>]
+[<span class="hljs-number">1</span>,]    <span class="hljs-number">16</span>     <span class="hljs-number">5275</span>     <span class="hljs-number">882</span>     <span class="hljs-number">51989</span>
+[<span class="hljs-number">2</span>,]  <span class="hljs-number">5275</span>  <span class="hljs-number">2664575</span>  <span class="hljs-number">374600</span>  <span class="hljs-number">26116730</span>
+[<span class="hljs-number">3</span>,]   <span class="hljs-number">882</span>   <span class="hljs-number">374600</span>   <span class="hljs-number">66870</span>   <span class="hljs-number">3984674</span>
+[<span class="hljs-number">4</span>,] <span class="hljs-number">51989</span> <span class="hljs-number">26116730</span> <span class="hljs-number">3984674</span> <span class="hljs-number">347290165</span>
+
+&gt; solve(xx)
+              [,<span class="hljs-number">1</span>]          [,<span class="hljs-number">2</span>]          [,<span class="hljs-number">3</span>]          [,<span class="hljs-number">4</span>]
+[<span class="hljs-number">1</span>,]  <span class="hljs-number">2.453364e-01</span> -<span class="hljs-number">1.995035e-04</span> -<span class="hljs-number">2.604604e-03</span>  <span class="hljs-number">8.160561e-06</span>
+[<span class="hljs-number">2</span>,] -<span class="hljs-number">1.995035e-04</span>  <span class="hljs-number">2.461102e-06</span> -<span class="hljs-number">6.027668e-06</span> -<span class="hljs-number">8.605383e-08</span>
+[<span class="hljs-number">3</span>,] -<span class="hljs-number">2.604604e-03</span> -<span class="hljs-number">6.027668e-06</span>  <span class="hljs-number">1.037929e-04</span> -<span class="hljs-number">3.476838e-07</span>
+[<span class="hljs-number">4</span>,]  <span class="hljs-number">8.160561e-06</span> -<span class="hljs-number">8.605383e-08</span> -<span class="hljs-number">3.476838e-07</span>  <span class="hljs-number">1.211837e-08</span>
+
+&gt; xy=t(x)%*%y
+&gt; xy
+          [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,]     <span class="hljs-number">51450</span>
+[<span class="hljs-number">2</span>,]  <span class="hljs-number">22758850</span>
+[<span class="hljs-number">3</span>,]   <span class="hljs-number">3520970</span>
+[<span class="hljs-number">4</span>,] <span class="hljs-number">251689300</span>
+&gt; bete=solve(xx)%*%xy
+&gt; bete
+            [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">965.2808939</span>
+[<span class="hljs-number">2</span>,]   <span class="hljs-number">2.8653231</span>
+[<span class="hljs-number">3</span>,]   <span class="hljs-number">6.7537560</span>
+[<span class="hljs-number">4</span>,]   <span class="hljs-number">0.2872553</span>
+</div></code></pre>
+<hr>
+<h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A4">លំហាត់ទី ២៤</h2>
+<pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">190</span>, <span class="hljs-number">121</span>, <span class="hljs-number">161</span>, <span class="hljs-number">161</span>, <span class="hljs-number">179</span>, <span class="hljs-number">99</span>, <span class="hljs-number">114</span>, <span class="hljs-number">202</span>, <span class="hljs-number">184</span>, <span class="hljs-number">90</span>, <span class="hljs-number">181</span>, <span class="hljs-number">143</span>, <span class="hljs-number">132</span>, <span class="hljs-number">127</span>, <span class="hljs-number">153</span>, <span class="hljs-number">145</span>, <span class="hljs-number">174</span>, <span class="hljs-number">177</span>, <span class="hljs-number">188</span>, <span class="hljs-number">153</span>, <span class="hljs-number">150</span>, <span class="hljs-number">173</span>, <span class="hljs-number">163</span>, <span class="hljs-number">150</span>, <span class="hljs-number">139</span>)
+&gt; x2=c(<span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>)
+&gt; x3=c(<span class="hljs-number">53</span>, <span class="hljs-number">49</span>, <span class="hljs-number">44</span>, <span class="hljs-number">39</span>, <span class="hljs-number">53</span>, <span class="hljs-number">46</span>, <span class="hljs-number">42</span>, <span class="hljs-number">49</span>, <span class="hljs-number">37</span>, <span class="hljs-number">43</span>, <span class="hljs-number">48</span>, <span class="hljs-number">54</span>, <span class="hljs-number">44</span>, <span class="hljs-number">37</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">52</span>, <span class="hljs-number">47</span>, <span class="hljs-number">49</span>, <span class="hljs-number">53</span>, <span class="hljs-number">58</span>, <span class="hljs-number">42</span>, <span class="hljs-number">46</span>, <span class="hljs-number">50</span>, <span class="hljs-number">45</span>)
+&gt; x4=c(<span class="hljs-number">230</span>, <span class="hljs-number">370</span>, <span class="hljs-number">397</span>, <span class="hljs-number">181</span>, <span class="hljs-number">378</span>, <span class="hljs-number">304</span>, <span class="hljs-number">285</span>, <span class="hljs-number">551</span>, <span class="hljs-number">370</span>, <span class="hljs-number">135</span>, <span class="hljs-number">332</span>, <span class="hljs-number">217</span>, <span class="hljs-number">490</span>, <span class="hljs-number">220</span>, <span class="hljs-number">270</span>, <span class="hljs-number">279</span>, <span class="hljs-number">329</span>, <span class="hljs-number">274</span>, <span class="hljs-number">433</span>, <span class="hljs-number">333</span>, <span class="hljs-number">148</span>, <span class="hljs-number">390</span>, <span class="hljs-number">142</span>, <span class="hljs-number">343</span>, <span class="hljs-number">373</span>)
+
+&gt; y=c(<span class="hljs-number">40.3</span>, <span class="hljs-number">39.6</span>, <span class="hljs-number">40.8</span>, <span class="hljs-number">40.3</span>, <span class="hljs-number">40.0</span>, <span class="hljs-number">38.1</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">40.7</span>, <span class="hljs-number">40.8</span>, <span class="hljs-number">37.1</span>, <span class="hljs-number">39.9</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">38.0</span>, <span class="hljs-number">39.0</span>, <span class="hljs-number">39.5</span>, <span class="hljs-number">40.6</span>, <span class="hljs-number">40.3</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">41.7</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">40.6</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">40.9</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">38.5</span>)
+&gt; x=matrix(c(rep(<span class="hljs-number">1</span>,<span class="hljs-number">25</span>),x1,x2,x3,x4),ncol=<span class="hljs-number">5</span>,nrow=<span class="hljs-number">25</span>)
+&gt; x
+      [,<span class="hljs-number">1</span>] [,<span class="hljs-number">2</span>] [,<span class="hljs-number">3</span>] [,<span class="hljs-number">4</span>] [,<span class="hljs-number">5</span>]
+ [<span class="hljs-number">1</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">190</span>   <span class="hljs-number">14</span>   <span class="hljs-number">53</span>  <span class="hljs-number">230</span>
+ [<span class="hljs-number">2</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">121</span>   <span class="hljs-number">15</span>   <span class="hljs-number">49</span>  <span class="hljs-number">370</span>
+ [<span class="hljs-number">3</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">161</span>   <span class="hljs-number">14</span>   <span class="hljs-number">44</span>  <span class="hljs-number">397</span>
+ [<span class="hljs-number">4</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">161</span>   <span class="hljs-number">14</span>   <span class="hljs-number">39</span>  <span class="hljs-number">181</span>
+ [<span class="hljs-number">5</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">179</span>   <span class="hljs-number">14</span>   <span class="hljs-number">53</span>  <span class="hljs-number">378</span>
+ [<span class="hljs-number">6</span>,]    <span class="hljs-number">1</span>   <span class="hljs-number">99</span>   <span class="hljs-number">14</span>   <span class="hljs-number">46</span>  <span class="hljs-number">304</span>
+ [<span class="hljs-number">7</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">114</span>   <span class="hljs-number">15</span>   <span class="hljs-number">42</span>  <span class="hljs-number">285</span>
+ [<span class="hljs-number">8</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">202</span>   <span class="hljs-number">14</span>   <span class="hljs-number">49</span>  <span class="hljs-number">551</span>
+ [<span class="hljs-number">9</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">184</span>   <span class="hljs-number">13</span>   <span class="hljs-number">37</span>  <span class="hljs-number">370</span>
+[<span class="hljs-number">10</span>,]    <span class="hljs-number">1</span>   <span class="hljs-number">90</span>   <span class="hljs-number">14</span>   <span class="hljs-number">43</span>  <span class="hljs-number">135</span>
+[<span class="hljs-number">11</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">181</span>   <span class="hljs-number">14</span>   <span class="hljs-number">48</span>  <span class="hljs-number">332</span>
+[<span class="hljs-number">12</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">143</span>   <span class="hljs-number">15</span>   <span class="hljs-number">54</span>  <span class="hljs-number">217</span>
+[<span class="hljs-number">13</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">132</span>   <span class="hljs-number">14</span>   <span class="hljs-number">44</span>  <span class="hljs-number">490</span>
+[<span class="hljs-number">14</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">127</span>   <span class="hljs-number">14</span>   <span class="hljs-number">37</span>  <span class="hljs-number">220</span>
+[<span class="hljs-number">15</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">153</span>   <span class="hljs-number">14</span>   <span class="hljs-number">50</span>  <span class="hljs-number">270</span>
+[<span class="hljs-number">16</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">145</span>   <span class="hljs-number">14</span>   <span class="hljs-number">50</span>  <span class="hljs-number">279</span>
+[<span class="hljs-number">17</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">174</span>   <span class="hljs-number">15</span>   <span class="hljs-number">52</span>  <span class="hljs-number">329</span>
+[<span class="hljs-number">18</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">177</span>   <span class="hljs-number">15</span>   <span class="hljs-number">47</span>  <span class="hljs-number">274</span>
+[<span class="hljs-number">19</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">188</span>   <span class="hljs-number">15</span>   <span class="hljs-number">49</span>  <span class="hljs-number">433</span>
+[<span class="hljs-number">20</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">153</span>   <span class="hljs-number">15</span>   <span class="hljs-number">53</span>  <span class="hljs-number">333</span>
+[<span class="hljs-number">21</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">150</span>   <span class="hljs-number">16</span>   <span class="hljs-number">58</span>  <span class="hljs-number">148</span>
+[<span class="hljs-number">22</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">173</span>   <span class="hljs-number">13</span>   <span class="hljs-number">42</span>  <span class="hljs-number">390</span>
+[<span class="hljs-number">23</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">163</span>   <span class="hljs-number">14</span>   <span class="hljs-number">46</span>  <span class="hljs-number">142</span>
+[<span class="hljs-number">24</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">150</span>   <span class="hljs-number">15</span>   <span class="hljs-number">50</span>  <span class="hljs-number">343</span>
+[<span class="hljs-number">25</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">139</span>   <span class="hljs-number">14</span>   <span class="hljs-number">45</span>  <span class="hljs-number">373</span>
+
+&gt; xx=t(x)%*%x
+&gt; xx
+     [,<span class="hljs-number">1</span>]    [,<span class="hljs-number">2</span>]   [,<span class="hljs-number">3</span>]   [,<span class="hljs-number">4</span>]    [,<span class="hljs-number">5</span>]
+[<span class="hljs-number">1</span>,]   <span class="hljs-number">25</span>    <span class="hljs-number">3849</span>    <span class="hljs-number">358</span>   <span class="hljs-number">1180</span>    <span class="hljs-number">7774</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">3849</span>  <span class="hljs-number">612555</span>  <span class="hljs-number">55049</span> <span class="hljs-number">182491</span> <span class="hljs-number">1223026</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">358</span>   <span class="hljs-number">55049</span>   <span class="hljs-number">5138</span>  <span class="hljs-number">16953</span>  <span class="hljs-number">110956</span>
+[<span class="hljs-number">4</span>,] <span class="hljs-number">1180</span>  <span class="hljs-number">182491</span>  <span class="hljs-number">16953</span>  <span class="hljs-number">56392</span>  <span class="hljs-number">366416</span>
+[<span class="hljs-number">5</span>,] <span class="hljs-number">7774</span> <span class="hljs-number">1223026</span> <span class="hljs-number">110956</span> <span class="hljs-number">366416</span> <span class="hljs-number">2684616</span>
+
+&gt; solve(xx)
+             [,<span class="hljs-number">1</span>]          [,<span class="hljs-number">2</span>]          [,<span class="hljs-number">3</span>]          [,<span class="hljs-number">4</span>]          [,<span class="hljs-number">5</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">25.511713049</span> -<span class="hljs-number">1.564751e-02</span> -<span class="hljs-number">1.8954295019</span>  <span class="hljs-number">9.993004e-02</span> -<span class="hljs-number">2.047756e-03</span>
+[<span class="hljs-number">2</span>,] -<span class="hljs-number">0.015647507</span>  <span class="hljs-number">6.766347e-05</span>  <span class="hljs-number">0.0010314042</span> -<span class="hljs-number">1.657402e-04</span> -<span class="hljs-number">5.520750e-06</span>
+[<span class="hljs-number">3</span>,] -<span class="hljs-number">1.895429502</span>  <span class="hljs-number">1.031404e-03</span>  <span class="hljs-number">0.1665362812</span> -<span class="hljs-number">1.439384e-02</span>  <span class="hljs-number">1.004122e-04</span>
+[<span class="hljs-number">4</span>,]  <span class="hljs-number">0.099930035</span> -<span class="hljs-number">1.657402e-04</span> -<span class="hljs-number">0.0143938389</span>  <span class="hljs-number">2.778662e-03</span>  <span class="hljs-number">1.782448e-06</span>
+[<span class="hljs-number">5</span>,] -<span class="hljs-number">0.002047756</span> -<span class="hljs-number">5.520750e-06</span>  <span class="hljs-number">0.0001004122</span>  <span class="hljs-number">1.782448e-06</span>  <span class="hljs-number">4.424031e-06</span>
+
+&gt; xy=t(x)%*%y
+&gt; xy
+         [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,]    <span class="hljs-number">998.2</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">154206.6</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">14297.5</span>
+[<span class="hljs-number">4</span>,]  <span class="hljs-number">47148.0</span>
+[<span class="hljs-number">5</span>,] <span class="hljs-number">310708.4</span>
+
+&gt; bete=solve(xx)%*%xy
+&gt; bete
+             [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">28.186258525</span>
+[<span class="hljs-number">2</span>,]  <span class="hljs-number">0.031652240</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">0.642266980</span>
+[<span class="hljs-number">4</span>,] -<span class="hljs-number">0.041823083</span>
+[<span class="hljs-number">5</span>,] -<span class="hljs-number">0.001140504</span>
+
+</div></code></pre>
+<hr>
+<h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A5">លំហាត់ទី ២៥</h2>
+<pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">190</span>, <span class="hljs-number">121</span>, <span class="hljs-number">161</span>, <span class="hljs-number">161</span>, <span class="hljs-number">179</span>, <span class="hljs-number">99</span>, <span class="hljs-number">114</span>, <span class="hljs-number">202</span>, <span class="hljs-number">184</span>, <span class="hljs-number">90</span>, <span class="hljs-number">181</span>, <span class="hljs-number">143</span>, <span class="hljs-number">132</span>, <span class="hljs-number">127</span>, <span class="hljs-number">153</span>, <span class="hljs-number">145</span>, <span class="hljs-number">174</span>, <span class="hljs-number">177</span>, <span class="hljs-number">188</span>, <span class="hljs-number">153</span>, <span class="hljs-number">150</span>, <span class="hljs-number">173</span>, <span class="hljs-number">163</span>, <span class="hljs-number">150</span>, <span class="hljs-number">139</span>)
+&gt; x2=c(<span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>)
+&gt; x3=c(<span class="hljs-number">53</span>, <span class="hljs-number">49</span>, <span class="hljs-number">44</span>, <span class="hljs-number">39</span>, <span class="hljs-number">53</span>, <span class="hljs-number">46</span>, <span class="hljs-number">42</span>, <span class="hljs-number">49</span>, <span class="hljs-number">37</span>, <span class="hljs-number">43</span>, <span class="hljs-number">48</span>, <span class="hljs-number">54</span>, <span class="hljs-number">44</span>, <span class="hljs-number">37</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">52</span>, <span class="hljs-number">47</span>, <span class="hljs-number">49</span>, <span class="hljs-number">53</span>, <span class="hljs-number">58</span>, <span class="hljs-number">42</span>, <span class="hljs-number">46</span>, <span class="hljs-number">50</span>, <span class="hljs-number">45</span>)
+&gt; x4=c(<span class="hljs-number">230</span>, <span class="hljs-number">370</span>, <span class="hljs-number">397</span>, <span class="hljs-number">181</span>, <span class="hljs-number">378</span>, <span class="hljs-number">304</span>, <span class="hljs-number">285</span>, <span class="hljs-number">551</span>, <span class="hljs-number">370</span>, <span class="hljs-number">135</span>, <span class="hljs-number">332</span>, <span class="hljs-number">217</span>, <span class="hljs-number">490</span>, <span class="hljs-number">220</span>, <span class="hljs-number">270</span>, <span class="hljs-number">279</span>, <span class="hljs-number">329</span>, <span class="hljs-number">274</span>, <span class="hljs-number">433</span>, <span class="hljs-number">333</span>, <span class="hljs-number">148</span>, <span class="hljs-number">390</span>, <span class="hljs-number">142</span>, <span class="hljs-number">343</span>, <span class="hljs-number">373</span>)
+&gt; 
+&gt; y=c(<span class="hljs-number">40.3</span>, <span class="hljs-number">39.6</span>, <span class="hljs-number">40.8</span>, <span class="hljs-number">40.3</span>, <span class="hljs-number">40.0</span>, <span class="hljs-number">38.1</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">40.7</span>, <span class="hljs-number">40.8</span>, <span class="hljs-number">37.1</span>, <span class="hljs-number">39.9</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">38.0</span>, <span class="hljs-number">39.0</span>, <span class="hljs-number">39.5</span>, <span class="hljs-number">40.6</span>, <span class="hljs-number">40.3</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">41.7</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">40.6</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">40.9</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">38.5</span>)
+&gt; x=matrix(c(rep(<span class="hljs-number">1</span>,<span class="hljs-number">25</span>),x1,x2,x3,x4),ncol=<span class="hljs-number">5</span>,nrow=<span class="hljs-number">25</span>)
+&gt; x
+      [,<span class="hljs-number">1</span>] [,<span class="hljs-number">2</span>] [,<span class="hljs-number">3</span>] [,<span class="hljs-number">4</span>] [,<span class="hljs-number">5</span>]
+ [<span class="hljs-number">1</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">190</span>   <span class="hljs-number">14</span>   <span class="hljs-number">53</span>  <span class="hljs-number">230</span>
+ [<span class="hljs-number">2</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">121</span>   <span class="hljs-number">15</span>   <span class="hljs-number">49</span>  <span class="hljs-number">370</span>
+ [<span class="hljs-number">3</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">161</span>   <span class="hljs-number">14</span>   <span class="hljs-number">44</span>  <span class="hljs-number">397</span>
+ [<span class="hljs-number">4</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">161</span>   <span class="hljs-number">14</span>   <span class="hljs-number">39</span>  <span class="hljs-number">181</span>
+ [<span class="hljs-number">5</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">179</span>   <span class="hljs-number">14</span>   <span class="hljs-number">53</span>  <span class="hljs-number">378</span>
+ [<span class="hljs-number">6</span>,]    <span class="hljs-number">1</span>   <span class="hljs-number">99</span>   <span class="hljs-number">14</span>   <span class="hljs-number">46</span>  <span class="hljs-number">304</span>
+ [<span class="hljs-number">7</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">114</span>   <span class="hljs-number">15</span>   <span class="hljs-number">42</span>  <span class="hljs-number">285</span>
+ [<span class="hljs-number">8</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">202</span>   <span class="hljs-number">14</span>   <span class="hljs-number">49</span>  <span class="hljs-number">551</span>
+ [<span class="hljs-number">9</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">184</span>   <span class="hljs-number">13</span>   <span class="hljs-number">37</span>  <span class="hljs-number">370</span>
+[<span class="hljs-number">10</span>,]    <span class="hljs-number">1</span>   <span class="hljs-number">90</span>   <span class="hljs-number">14</span>   <span class="hljs-number">43</span>  <span class="hljs-number">135</span>
+[<span class="hljs-number">11</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">181</span>   <span class="hljs-number">14</span>   <span class="hljs-number">48</span>  <span class="hljs-number">332</span>
+[<span class="hljs-number">12</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">143</span>   <span class="hljs-number">15</span>   <span class="hljs-number">54</span>  <span class="hljs-number">217</span>
+[<span class="hljs-number">13</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">132</span>   <span class="hljs-number">14</span>   <span class="hljs-number">44</span>  <span class="hljs-number">490</span>
+[<span class="hljs-number">14</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">127</span>   <span class="hljs-number">14</span>   <span class="hljs-number">37</span>  <span class="hljs-number">220</span>
+[<span class="hljs-number">15</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">153</span>   <span class="hljs-number">14</span>   <span class="hljs-number">50</span>  <span class="hljs-number">270</span>
+[<span class="hljs-number">16</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">145</span>   <span class="hljs-number">14</span>   <span class="hljs-number">50</span>  <span class="hljs-number">279</span>
+[<span class="hljs-number">17</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">174</span>   <span class="hljs-number">15</span>   <span class="hljs-number">52</span>  <span class="hljs-number">329</span>
+[<span class="hljs-number">18</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">177</span>   <span class="hljs-number">15</span>   <span class="hljs-number">47</span>  <span class="hljs-number">274</span>
+[<span class="hljs-number">19</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">188</span>   <span class="hljs-number">15</span>   <span class="hljs-number">49</span>  <span class="hljs-number">433</span>
+[<span class="hljs-number">20</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">153</span>   <span class="hljs-number">15</span>   <span class="hljs-number">53</span>  <span class="hljs-number">333</span>
+[<span class="hljs-number">21</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">150</span>   <span class="hljs-number">16</span>   <span class="hljs-number">58</span>  <span class="hljs-number">148</span>
+[<span class="hljs-number">22</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">173</span>   <span class="hljs-number">13</span>   <span class="hljs-number">42</span>  <span class="hljs-number">390</span>
+[<span class="hljs-number">23</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">163</span>   <span class="hljs-number">14</span>   <span class="hljs-number">46</span>  <span class="hljs-number">142</span>
+[<span class="hljs-number">24</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">150</span>   <span class="hljs-number">15</span>   <span class="hljs-number">50</span>  <span class="hljs-number">343</span>
+[<span class="hljs-number">25</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">139</span>   <span class="hljs-number">14</span>   <span class="hljs-number">45</span>  <span class="hljs-number">373</span>
+&gt; 
+&gt; xx=t(x)%*%x
+&gt; xx
+     [,<span class="hljs-number">1</span>]    [,<span class="hljs-number">2</span>]   [,<span class="hljs-number">3</span>]   [,<span class="hljs-number">4</span>]    [,<span class="hljs-number">5</span>]
+[<span class="hljs-number">1</span>,]   <span class="hljs-number">25</span>    <span class="hljs-number">3849</span>    <span class="hljs-number">358</span>   <span class="hljs-number">1180</span>    <span class="hljs-number">7774</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">3849</span>  <span class="hljs-number">612555</span>  <span class="hljs-number">55049</span> <span class="hljs-number">182491</span> <span class="hljs-number">1223026</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">358</span>   <span class="hljs-number">55049</span>   <span class="hljs-number">5138</span>  <span class="hljs-number">16953</span>  <span class="hljs-number">110956</span>
+[<span class="hljs-number">4</span>,] <span class="hljs-number">1180</span>  <span class="hljs-number">182491</span>  <span class="hljs-number">16953</span>  <span class="hljs-number">56392</span>  <span class="hljs-number">366416</span>
+[<span class="hljs-number">5</span>,] <span class="hljs-number">7774</span> <span class="hljs-number">1223026</span> <span class="hljs-number">110956</span> <span class="hljs-number">366416</span> <span class="hljs-number">2684616</span>
+&gt; 
+&gt; 
+&gt; solve(xx)
+             [,<span class="hljs-number">1</span>]          [,<span class="hljs-number">2</span>]          [,<span class="hljs-number">3</span>]          [,<span class="hljs-number">4</span>]          [,<span class="hljs-number">5</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">25.511713049</span> -<span class="hljs-number">1.564751e-02</span> -<span class="hljs-number">1.8954295019</span>  <span class="hljs-number">9.993004e-02</span> -<span class="hljs-number">2.047756e-03</span>
+[<span class="hljs-number">2</span>,] -<span class="hljs-number">0.015647507</span>  <span class="hljs-number">6.766347e-05</span>  <span class="hljs-number">0.0010314042</span> -<span class="hljs-number">1.657402e-04</span> -<span class="hljs-number">5.520750e-06</span>
+[<span class="hljs-number">3</span>,] -<span class="hljs-number">1.895429502</span>  <span class="hljs-number">1.031404e-03</span>  <span class="hljs-number">0.1665362812</span> -<span class="hljs-number">1.439384e-02</span>  <span class="hljs-number">1.004122e-04</span>
+[<span class="hljs-number">4</span>,]  <span class="hljs-number">0.099930035</span> -<span class="hljs-number">1.657402e-04</span> -<span class="hljs-number">0.0143938389</span>  <span class="hljs-number">2.778662e-03</span>  <span class="hljs-number">1.782448e-06</span>
+[<span class="hljs-number">5</span>,] -<span class="hljs-number">0.002047756</span> -<span class="hljs-number">5.520750e-06</span>  <span class="hljs-number">0.0001004122</span>  <span class="hljs-number">1.782448e-06</span>  <span class="hljs-number">4.424031e-06</span>
+&gt; 
+&gt; 
+&gt; 
+&gt; xy=t(x)%*%y
+&gt; xy
+         [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,]    <span class="hljs-number">998.2</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">154206.6</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">14297.5</span>
+[<span class="hljs-number">4</span>,]  <span class="hljs-number">47148.0</span>
+[<span class="hljs-number">5</span>,] <span class="hljs-number">310708.4</span>
+&gt; 
+&gt; 
+&gt; bete=solve(xx)%*%xy
+&gt; bete
+             [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">28.186258525</span>
+[<span class="hljs-number">2</span>,]  <span class="hljs-number">0.031652240</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">0.642266980</span>
+[<span class="hljs-number">4</span>,] -<span class="hljs-number">0.041823083</span>
+[<span class="hljs-number">5</span>,] -<span class="hljs-number">0.001140504</span>
+&gt; <span class="hljs-comment"># 25</span>
+&gt; income &lt;- c(<span class="hljs-number">48157</span>, <span class="hljs-number">48568</span>, <span class="hljs-number">46816</span>, <span class="hljs-number">34876</span>, <span class="hljs-number">35478</span>, <span class="hljs-number">34465</span>, <span class="hljs-number">35026</span>, <span class="hljs-number">38599</span>, <span class="hljs-number">33315</span>)
+&gt; age &lt;- c(<span class="hljs-number">57.7</span>, <span class="hljs-number">60.7</span>, <span class="hljs-number">47.9</span>, <span class="hljs-number">38.4</span>, <span class="hljs-number">42.8</span>, <span class="hljs-number">35.4</span>, <span class="hljs-number">39.5</span>, <span class="hljs-number">65.6</span>, <span class="hljs-number">27.0</span>)
+&gt; pop400 &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
+&gt; data &lt;- data.frame(income, age, pop400)
+&gt; <span class="hljs-comment"># A.</span>
+&gt; cor(age, income)
+[<span class="hljs-number">1</span>] <span class="hljs-number">0.7214069</span>
+&gt; <span class="hljs-comment"># B.</span>
+&gt; model1 &lt;- lm(income ~ age, data = data)
+&gt; summary(model1)
+
+Call:
+lm(formula = income ~ age, data = data)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -<span class="hljs-number">7926</span>  -<span class="hljs-number">2061</span>  -<span class="hljs-number">1140</span>   <span class="hljs-number">3815</span>   <span class="hljs-number">6691</span> 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  <span class="hljs-number">22804.7</span>     <span class="hljs-number">6255.2</span>   <span class="hljs-number">3.646</span>  <span class="hljs-number">0.00822</span> **
+age            <span class="hljs-number">361.6</span>      <span class="hljs-number">131.2</span>   <span class="hljs-number">2.756</span>  <span class="hljs-number">0.02825</span> * 
+---
+Signif. codes:  <span class="hljs-number">0</span> ‘***’ <span class="hljs-number">0.001</span> ‘**’ <span class="hljs-number">0.01</span> ‘*’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span>
+
+Residual standard error: <span class="hljs-number">4774</span> on <span class="hljs-number">7</span> degrees of freedom
+Multiple R-squared:  <span class="hljs-number">0.5204</span>,	Adjusted R-squared:  <span class="hljs-number">0.4519</span> 
+<span class="hljs-literal">F</span>-statistic: <span class="hljs-number">7.596</span> on <span class="hljs-number">1</span> and <span class="hljs-number">7</span> DF,  p-value: <span class="hljs-number">0.02825</span>
+
+&gt; <span class="hljs-comment"># C.</span>
+&gt; model1 &lt;- lm(income ~ age, data = data)
+&gt; summary(model1)
+
+Call:
+lm(formula = income ~ age, data = data)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+ -<span class="hljs-number">7926</span>  -<span class="hljs-number">2061</span>  -<span class="hljs-number">1140</span>   <span class="hljs-number">3815</span>   <span class="hljs-number">6691</span> 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  <span class="hljs-number">22804.7</span>     <span class="hljs-number">6255.2</span>   <span class="hljs-number">3.646</span>  <span class="hljs-number">0.00822</span> **
+age            <span class="hljs-number">361.6</span>      <span class="hljs-number">131.2</span>   <span class="hljs-number">2.756</span>  <span class="hljs-number">0.02825</span> * 
+---
+Signif. codes:  <span class="hljs-number">0</span> ‘***’ <span class="hljs-number">0.001</span> ‘**’ <span class="hljs-number">0.01</span> ‘*’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span>
+
+Residual standard error: <span class="hljs-number">4774</span> on <span class="hljs-number">7</span> degrees of freedom
+Multiple R-squared:  <span class="hljs-number">0.5204</span>,	Adjusted R-squared:  <span class="hljs-number">0.4519</span> 
+<span class="hljs-literal">F</span>-statistic: <span class="hljs-number">7.596</span> on <span class="hljs-number">1</span> and <span class="hljs-number">7</span> DF,  p-value: <span class="hljs-number">0.02825</span>
+
+&gt; <span class="hljs-comment"># D.</span>
+&gt; model2 &lt;- lm(income ~ age + pop400, data = data)
+&gt; <span class="hljs-comment"># summary(model2)</span>
+&gt; <span class="hljs-comment"># E.</span>
+&gt; summary(model2)
+
+Call:
+lm(formula = income ~ age + pop400, data = data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-<span class="hljs-number">6622.2</span>  -<span class="hljs-number">109.1</span>   <span class="hljs-number">731.7</span>  <span class="hljs-number">1686.0</span>  <span class="hljs-number">3063.6</span> 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)   
+(Intercept)  <span class="hljs-number">24865.3</span>     <span class="hljs-number">4551.9</span>   <span class="hljs-number">5.463</span>  <span class="hljs-number">0.00157</span> **
+age            <span class="hljs-number">250.5</span>      <span class="hljs-number">102.4</span>   <span class="hljs-number">2.445</span>  <span class="hljs-number">0.05010</span> . 
+pop400        <span class="hljs-number">6887.7</span>     <span class="hljs-number">2500.7</span>   <span class="hljs-number">2.754</span>  <span class="hljs-number">0.03310</span> * 
+---
+Signif. codes:  <span class="hljs-number">0</span> ‘***’ <span class="hljs-number">0.001</span> ‘**’ <span class="hljs-number">0.01</span> ‘*’ <span class="hljs-number">0.05</span> ‘.’ <span class="hljs-number">0.1</span> ‘ ’ <span class="hljs-number">1</span>
+
+Residual standard error: <span class="hljs-number">3427</span> on <span class="hljs-number">6</span> degrees of freedom
+Multiple R-squared:  <span class="hljs-number">0.7882</span>,	Adjusted R-squared:  <span class="hljs-number">0.7176</span> 
+<span class="hljs-literal">F</span>-statistic: <span class="hljs-number">11.16</span> on <span class="hljs-number">2</span> and <span class="hljs-number">6</span> DF,  p-value: <span class="hljs-number">0.0095</span>
+
+&gt; <span class="hljs-comment"># F.</span>
+&gt; hist(residuals(model2))
+&gt; qqnorm(residuals(model2))
+&gt; qqline(residuals(model2))
+&gt; <span class="hljs-comment"># g.</span>
+&gt; plot(fitted(model2), residuals(model2))
+&gt; abline(h = <span class="hljs-number">0</span>)
+&gt; 
+</div></code></pre>
+<hr>
+<h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A6">លំហាត់ទី ២៦</h2>
+<pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">73.98</span>, <span class="hljs-number">54.90</span>, <span class="hljs-number">94.14</span>, <span class="hljs-number">52.02</span>, <span class="hljs-number">65.70</span>, <span class="hljs-number">53.64</span>, <span class="hljs-number">79.74</span>, <span class="hljs-number">68.58</span>, <span class="hljs-number">165.60</span>, <span class="hljs-number">64.80</span>, <span class="hljs-number">138.42</span>, <span class="hljs-number">125.82</span>, <span class="hljs-number">77.58</span>, <span class="hljs-number">171.36</span>, <span class="hljs-number">82.08</span>, <span class="hljs-number">141.30</span>, <span class="hljs-number">36.90</span>, <span class="hljs-number">56.88</span>, <span class="hljs-number">71.82</span>, <span class="hljs-number">69.48</span>, <span class="hljs-number">54.36</span>, <span class="hljs-number">87.66</span>, <span class="hljs-number">38.16</span>, <span class="hljs-number">43.74</span>, <span class="hljs-number">48.42</span>)
+&gt; x2=c(<span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>)
+
+&gt; y=c(<span class="hljs-number">5.04</span>, <span class="hljs-number">4.08</span>, <span class="hljs-number">5.76</span>, <span class="hljs-number">3.48</span>, <span class="hljs-number">4.20</span>, <span class="hljs-number">4.80</span>, <span class="hljs-number">4.32</span>, <span class="hljs-number">5.04</span>, <span class="hljs-number">6.12</span>, <span class="hljs-number">3.24</span>, <span class="hljs-number">4.80</span>, <span class="hljs-number">3.24</span>, <span class="hljs-number">6.60</span>, <span class="hljs-number">4.92</span>, <span class="hljs-number">6.60</span>, <span class="hljs-number">5.40</span>, <span class="hljs-number">6.00</span>, <span class="hljs-number">5.40</span>, <span class="hljs-number">3.36</span>, <span class="hljs-number">4.68</span>, <span class="hljs-number">4.32</span>, <span class="hljs-number">5.52</span>, <span class="hljs-number">4.56</span>, <span class="hljs-number">5.40</span>, <span class="hljs-number">4.80</span>)
+&gt; x=matrix(c(rep(<span class="hljs-number">1</span>,<span class="hljs-number">25</span>),x1,x2),ncol=<span class="hljs-number">3</span>,nrow=<span class="hljs-number">25</span>)
+&gt; x
+      [,<span class="hljs-number">1</span>]   [,<span class="hljs-number">2</span>] [,<span class="hljs-number">3</span>]
+ [<span class="hljs-number">1</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">73.98</span>    <span class="hljs-number">4</span>
+ [<span class="hljs-number">2</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">54.90</span>    <span class="hljs-number">2</span>
+ [<span class="hljs-number">3</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">94.14</span>    <span class="hljs-number">4</span>
+ [<span class="hljs-number">4</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">52.02</span>    <span class="hljs-number">1</span>
+ [<span class="hljs-number">5</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">65.70</span>    <span class="hljs-number">2</span>
+ [<span class="hljs-number">6</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">53.64</span>    <span class="hljs-number">4</span>
+ [<span class="hljs-number">7</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">79.74</span>    <span class="hljs-number">3</span>
+ [<span class="hljs-number">8</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">68.58</span>    <span class="hljs-number">4</span>
+ [<span class="hljs-number">9</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">165.60</span>    <span class="hljs-number">5</span>
+[<span class="hljs-number">10</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">64.80</span>    <span class="hljs-number">1</span>
+[<span class="hljs-number">11</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">138.42</span>    <span class="hljs-number">3</span>
+[<span class="hljs-number">12</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">125.82</span>    <span class="hljs-number">1</span>
+[<span class="hljs-number">13</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">77.58</span>    <span class="hljs-number">7</span>
+[<span class="hljs-number">14</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">171.36</span>    <span class="hljs-number">2</span>
+[<span class="hljs-number">15</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">82.08</span>    <span class="hljs-number">9</span>
+[<span class="hljs-number">16</span>,]    <span class="hljs-number">1</span> <span class="hljs-number">141.30</span>    <span class="hljs-number">3</span>
+[<span class="hljs-number">17</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">36.90</span>    <span class="hljs-number">5</span>
+[<span class="hljs-number">18</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">56.88</span>    <span class="hljs-number">4</span>
+[<span class="hljs-number">19</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">71.82</span>    <span class="hljs-number">1</span>
+[<span class="hljs-number">20</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">69.48</span>    <span class="hljs-number">3</span>
+[<span class="hljs-number">21</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">54.36</span>    <span class="hljs-number">2</span>
+[<span class="hljs-number">22</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">87.66</span>    <span class="hljs-number">5</span>
+[<span class="hljs-number">23</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">38.16</span>    <span class="hljs-number">3</span>
+[<span class="hljs-number">24</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">43.74</span>    <span class="hljs-number">7</span>
+[<span class="hljs-number">25</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">48.42</span>    <span class="hljs-number">5</span>
+
+&gt; xx=t(x)%*%x
+&gt; xx
+        [,<span class="hljs-number">1</span>]      [,<span class="hljs-number">2</span>]    [,<span class="hljs-number">3</span>]
+[<span class="hljs-number">1</span>,]   <span class="hljs-number">25.00</span>   <span class="hljs-number">2017.08</span>   <span class="hljs-number">90.00</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">2017.08</span> <span class="hljs-number">197945.47</span> <span class="hljs-number">7078.14</span>
+[<span class="hljs-number">3</span>,]   <span class="hljs-number">90.00</span>   <span class="hljs-number">7078.14</span>  <span class="hljs-number">424.00</span>
+ 
+
+&gt; solve(xx)
+             [,<span class="hljs-number">1</span>]          [,<span class="hljs-number">2</span>]          [,<span class="hljs-number">3</span>]
+[<span class="hljs-number">1</span>,]  <span class="hljs-number">0.388113857</span> -<span class="hljs-number">2.503489e-03</span> -<span class="hljs-number">4.059010e-02</span>
+[<span class="hljs-number">2</span>,] -<span class="hljs-number">0.002503489</span>  <span class="hljs-number">2.868220e-05</span>  <span class="hljs-number">5.258823e-05</span>
+[<span class="hljs-number">3</span>,] -<span class="hljs-number">0.040590097</span>  <span class="hljs-number">5.258823e-05</span>  <span class="hljs-number">1.009642e-02</span>
+ 
+&gt; xy=t(x)%*%y
+&gt; xy
+         [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,]  <span class="hljs-number">121.680</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">9955.397</span>
+[<span class="hljs-number">3</span>,]  <span class="hljs-number">479.400</span>
+
+&gt; bete=solve(xx)%*%xy
+&gt; bete
+          [,<span class="hljs-number">1</span>]
+[<span class="hljs-number">1</span>,] <span class="hljs-number">2.8435747</span>
+[<span class="hljs-number">2</span>,] <span class="hljs-number">0.0061289</span>
+[<span class="hljs-number">3</span>,] <span class="hljs-number">0.4247572</span>
+</div></code></pre>
+<hr>
+<link rel="stylesheet" href="style.css">
+</body>
+</html>

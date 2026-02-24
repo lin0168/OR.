@@ -1,0 +1,13 @@
+/* Style for headings */
+h2 {
+    font-family: 'Kh Ang Silbak', sans-serif;
+    font-size: 24px;
+    color: #333;
+}
+body {
+    font-family: 'Kh Ang Silbak', sans-serif;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Alternative: You can specify a specific font for all headings or customize further */
