@@ -277,7 +277,7 @@ F-statistic: 11.16 on 2 and 6 DF,  p-value: 0.0095
 > # g.
 > plot(fitted(model2), residuals(model2))
 > abline(h = 0)
-> 
+
 ```
 ---
 
@@ -400,4 +400,5 @@ F-statistic: 11.16 on 2 and 6 DF,  p-value: 0.0095
 ---
 
 <link rel="stylesheet" href="style.css">
+
 
