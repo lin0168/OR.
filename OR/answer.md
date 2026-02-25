@@ -225,6 +225,8 @@
  ![Image](/image/25.1.jpg)
  ![Image](/image/25.2.jpg)
  ![Image](/image/25.3.jpg)
+ 
+---
 
 **យើងក៏អាចធ្វើតាម R Program ផងដែរ**
 
@@ -443,4 +445,5 @@ F-statistic: 11.16 on 2 and 6 DF,  p-value: 0.0095
 
 
 <link rel="stylesheet" href="style.css">
+
 
