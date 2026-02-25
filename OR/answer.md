@@ -226,6 +226,8 @@
  ![Image](/image/25.2.jpg)
  ![Image](/image/25.3.jpg)
 
+**យើងក៏អាចធ្វើតាម R Program ផងដែរ**
+
 ```R
 > income <- c(48157, 48568, 46816, 34876, 35478, 34465, 35026, 38599, 33315)
 > age <- c(57.7, 60.7, 47.9, 38.4, 42.8, 35.4, 39.5, 65.6, 27.0)
@@ -441,3 +443,4 @@ F-statistic: 11.16 on 2 and 6 DF,  p-value: 0.0095
 
 
 <link rel="stylesheet" href="style.css">
+
