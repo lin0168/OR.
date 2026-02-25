@@ -365,8 +365,226 @@ code {
           : 'default'
     });
   </script>
+<p><strong>ថ្ងៃពុធ ទី 11 ខែកុម្ភៈ ឆ្នាំ 2026</strong></p>
+<blockquote>
+<p><strong>ឈ្មោះសមាជិកក្រុម:</strong></p>
+<ol>
+<li>រី ស្រីណែត (7)</li>
+<li>រុន មួយហោង (10)</li>
+<li>រ៉ន សុធារ៉ា (4)</li>
+<li>វុន វិច្ឆរ៉ា (28)</li>
+<li>ស៊ា សុលីន (36)</li>
+</ol>
+</blockquote>
+<p><strong>ថ្នាក់:</strong> <strong>3D</strong></p>
+<hr>
 <h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A2">លំហាត់ទី ២២</h2>
 <hr>
+<h2 id="a-determine-the-regression-equation">a. Determine the regression equation.</h2>
+<p><strong>តាង:</strong></p>
+<ul>
+<li>$Y$ = Daily Sales</li>
+<li>$X_1$ = Store Area</li>
+<li>$X_2$ = Parking Spaces</li>
+<li>$X_3$ = Income</li>
+</ul>
+<p><strong>តាមរូបមន្ត MLR:</strong>
+$$\hat{y} = b_0 + b_1X_1 + b_2X_2 + b_3X_3$$</p>
+<p><strong>តាមតារាងយើងគណនាបាន:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Summation</th>
+<th style="text-align:left">Value</th>
+<th style="text-align:left">Summation</th>
+<th style="text-align:left">Value</th>
+<th style="text-align:left">Summation</th>
+<th style="text-align:left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$\sum X_1$</td>
+<td style="text-align:left">8,220</td>
+<td style="text-align:left">$\sum X_2$</td>
+<td style="text-align:left">92</td>
+<td style="text-align:left">$\sum X_3$</td>
+<td style="text-align:left">743</td>
+</tr>
+<tr>
+<td style="text-align:left">$\sum X_1Y$</td>
+<td style="text-align:left">14,863,465</td>
+<td style="text-align:left">$\sum X_2Y$</td>
+<td style="text-align:left">166,729</td>
+<td style="text-align:left">$\sum X_3Y$</td>
+<td style="text-align:left">1,342,368</td>
+</tr>
+<tr>
+<td style="text-align:left">$\sum Y$</td>
+<td style="text-align:left">28,920</td>
+<td style="text-align:left">$\sum X_1X_2$</td>
+<td style="text-align:left">47,976</td>
+<td style="text-align:left">$\sum X_2X_3$</td>
+<td style="text-align:left">4,243</td>
+</tr>
+<tr>
+<td style="text-align:left">$\sum X_1^2$</td>
+<td style="text-align:left">4,931,159</td>
+<td style="text-align:left">$\sum X_2^2$</td>
+<td style="text-align:left">564</td>
+<td style="text-align:left">$\sum X_3^2$</td>
+<td style="text-align:left">34,607</td>
+</tr>
+<tr>
+<td style="text-align:left">$\sum X_1X_3$</td>
+<td style="text-align:left">381,669</td>
+<td style="text-align:left">$n$</td>
+<td style="text-align:left">15</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="matrix-representation">Matrix Representation</h3>
+<p><strong>ហាង X =</strong>
+$$
+\begin{bmatrix}
+1 &amp; 532 &amp; 6 &amp; 44 \
+1 &amp; 478 &amp; 4 &amp; 51 \
+1 &amp; 530 &amp; 7 &amp; 45 \
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \
+1 &amp; 482 &amp; 7 &amp; 43
+\end{bmatrix}
+$$</p>
+<p><strong>តាមរូបមន្ត $(X^T X)$:</strong>
+$$
+(X^T X) = \begin{bmatrix}
+n &amp; \sum X_1 &amp; \sum X_2 &amp; \sum X_3 \
+\sum X_1 &amp; \sum X_1^2 &amp; \sum X_1X_2 &amp; \sum X_1X_3 \
+\sum X_2 &amp; \sum X_1X_2 &amp; \sum X_2^2 &amp; \sum X_2X_3 \
+\sum X_3 &amp; \sum X_1X_3 &amp; \sum X_2X_3 &amp; \sum X_3^2
+\end{bmatrix}
+$$</p>
+<p><strong>$\Rightarrow (X^T X) =$</strong>
+$$
+\begin{bmatrix}
+15 &amp; 8,220 &amp; 92 &amp; 743 \
+8,220 &amp; 4,931,159 &amp; 47,976 &amp; 381,669 \
+92 &amp; 47,976 &amp; 564 &amp; 4,243 \
+743 &amp; 381,669 &amp; 4,243 &amp; 34,607
+\end{bmatrix}
+$$</p>
+<h3 id="%E1%9E%80%E1%9E%B6%E1%9E%9A%E1%9E%82%E1%9E%8E%E1%9E%93%E1%9E%B6%E1%9E%98%E1%9F%89%E1%9E%B6%E1%9E%91%E1%9F%92%E1%9E%9A%E1%9E%B8%E1%9E%9F-%E1%9E%93%E1%9E%B7%E1%9E%84%E1%9E%9F%E1%9E%98%E1%9E%B8%E1%9E%80%E1%9E%B6%E1%9E%9A-mlr">ការគណនាម៉ាទ្រីស និងសមីការ MLR</h3>
+<p><strong>គេថា ម៉ាទ្រីសច្រាស់នៃ $X^T X$ គឺ:</strong></p>
+<p>$$
+(X^T X)^{-1} = \begin{bmatrix}
+88.5827 &amp; -8.78177 &amp; -6.549371 &amp; -0.845196 \
+-0.08781 &amp; 1.480315 &amp; -5.06807 &amp; 0.000351 \
+-0.65493 &amp; -5.06807 &amp; 3.751051 &amp; 0.010039 \
+-0.84519 &amp; 2.515805 &amp; 1.00397 &amp; 0.0161111
+\end{bmatrix}
+$$</p>
+<p><strong>ម្យ៉ាងទៀត</strong> $X^T Y = \begin{bmatrix} \sum Y \ \sum X_1 Y \ \sum X_2 Y \ \sum X_3 Y \end{bmatrix} = \begin{bmatrix} 27105 \ 13988635 \ 154023 \ 1264323 \end{bmatrix}$</p>
+<hr>
+<p><strong>តាមរូបមន្ត</strong> $\beta = (X^T X)^{-1}(X^T Y) = \begin{bmatrix} 1480.7446116 \ 0.7314989 \ 9.9914874 \ -2.3082627 \end{bmatrix}$</p>
+<p><strong>យើងទទួលបាន:</strong></p>
+<ul>
+<li>$b_0 = 1480.7446116$</li>
+<li>$b_1 = 0.7314989$</li>
+<li>$b_2 = 9.9914874$</li>
+<li>$b_3 = -2.3082627$</li>
+</ul>
+<hr>
+<p><strong>យើងបានសមីការ:</strong>
+$\Rightarrow \text{MLR: } \hat{y} = b_0 + b_1 X_1 + b_2 X_2 + b_3 X_3$</p>
+<p><strong>ដូចនេះ</strong> $\hat{y} = 1480.7446116 + 0.7314989 X_1 + 9.9914874 X_2 - 2.3082627 X_3$</p>
+<h2 id="b-interpret-the-meaning-of-the-slopes">B. Interpret the meaning of the slopes</h2>
+<ul>
+<li>
+<p><strong>b₁ = 0.7314989</strong>មានន័យថា បើផ្ទៃដី (square foot) កើនឡើង 1 square foot នោះតម្លៃលក់នឹងកើនឡើងប្រហែល 0.7315$ ដោយសន្មត់ថា អថេរផ្សេងៗទៀតនៅថេរ (ceteris paribus)។</p>
+</li>
+<li>
+<p><strong>b₂ = 9.9914874</strong> មានន័យថា បើអថេរ X₂ កើនឡើង 1 ឯកតា នោះតម្លៃលក់នឹងកើនឡើងប្រហែល 9.9914$ ដោយសន្មត់ថា អថេរផ្សេងទៀតនៅថេរ។</p>
+</li>
+<li>
+<p><strong>b₃ = -2.3082627</strong>មានន័យថា បើអថេរ X₃ កើនឡើង 1 ឯកតា នោះតម្លៃលក់នឹងថយចុះប្រហែល 2.3082$ ដោយសន្មត់ថា អថេរផ្សេងទៀតនៅថេរ។</p>
+</li>
+</ul>
+<hr>
+<h2 id="c-interpret-the-meaning-of-the-regression-coefficient-for-b%E2%82%80">C. Interpret the meaning of the regression coefficient for b₀</h2>
+<ul>
+<li><strong>b₀ = 1480.7446116</strong>មានន័យថា នៅពេលអថេរឯករាជ្យទាំងអស់ស្មើ 0 (X₁ = 0, X₂ = 0, X₃ = 0) តម្លៃលក់ដែលបានព្យាករណ៍គឺប្រហែល 1480.7446$</li>
+</ul>
+<hr>
+<h2 id="d-prediction-the-sales-of-the-company">D. Prediction the sales of the company</h2>
+<p><strong>តាមរូបន្ត</strong></p>
+<p>[
+r^2 = \frac{SSR}{SST}
+]</p>
+<p><strong>Step 1: Calculate SSR</strong></p>
+<p>[
+SSR = \beta^T \times Y - \frac{(\sum y)^2}{n}
+]</p>
+<p>[
+\sum y^2 = 48,990,775
+]</p>
+<p>[
+\beta^T =
+[1480.7446116,\ 0.7314989,\ 9.9914874,\ -2.3082627]
+]</p>
+<p>[
+Y =
+\begin{bmatrix}
+27105 \
+13,988,685 \
+154,021 \
+1,204,323
+\end{bmatrix}
+]</p>
+<p>[
+SSR = 48,988,793 - 48,978,735
+]</p>
+<p>[
+SSR = 10,058
+]</p>
+<p><strong>Step 2: Calculate SST</strong></p>
+<p>[
+SST = \sum y^2 - \frac{(\sum y)^2}{n}
+]</p>
+<p>[
+SST = 48,990,775 - \frac{(27,105)^2}{15}
+]</p>
+<p>[
+SST = 12,040
+]</p>
+<p><strong>Step 3: Calculate R²</strong></p>
+<p>[
+R^2 = \frac{SSR}{SST}
+]</p>
+<p>[
+R^2 = \frac{10,058}{12,040}
+]</p>
+<p>[
+R^2 = 0.8358206 \approx 0.8354
+]</p>
+<p><strong>Conclusion</strong>
+[
+R^2 = 83.54%
+]</p>
+<blockquote>
+<p><strong>មានន័យថា 83.54% នៃការប្រែប្រួលតម្លៃលក់ អាចពន្យល់បានដោយម៉ូដែល regression នេះ ខណៈដែល 16.46% នៅសល់ត្រូវបានបណ្តាលដោយកត្តាផ្សេងៗ ដែលមិនបានបញ្ចូលក្នុងម៉ូដែល។</strong></p>
+</blockquote>
+<h2 id="e-compute-the-adjusted-r2">E: Compute the Adjusted $r^2$</h2>
+<h3 id="2-apply-the-adjusted-r2-formula">2. Apply the Adjusted $r^2$ Formula</h3>
+<p><strong>តាមរូបន្ត្ត</strong>
+$$r^2_{adj} = 1 - \frac{\frac{SS_{res}}{n - k}}{\frac{SST}{n - 1}}$$</p>
+<p><strong>គេបាន</strong>
+$$r^2_{adj} = 1 - \frac{\frac{1,982}{15 - 3}}{\frac{12,040}{15 - 1}}$$
+$$r^2_{adj} = 1 - \frac{\frac{1,982}{12}}{\frac{12,040}{14}}$$
+$$r^2_{adj} = 0.808$$</p>
+<hr>
+<h3 id="%E1%9E%99%E1%9E%BE%E1%9E%84%E1%9E%80%E1%9F%8F%E1%9E%92%E1%9F%92%E1%9E%9C%E1%9E%BE%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%93%E1%9F%81%E1%9F%87%E1%9E%8F%E1%9E%B6%E1%9E%98-r-program-%E1%9E%95%E1%9E%84%E1%9E%8A%E1%9F%82%E1%9E%9A">យើងក៏ធ្វើលំហាត់នេះតាម R Program ផងដែរ</h3>
 <pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">532</span>,<span class="hljs-number">478</span>,<span class="hljs-number">530</span>,<span class="hljs-number">508</span>,<span class="hljs-number">514</span>,<span class="hljs-number">556</span>,<span class="hljs-number">541</span>,<span class="hljs-number">513</span>,<span class="hljs-number">532</span>,<span class="hljs-number">537</span>,<span class="hljs-number">499</span>,<span class="hljs-number">510</span>,<span class="hljs-number">490</span>,<span class="hljs-number">516</span>,<span class="hljs-number">482</span>)
 &gt; x2=c(<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">7</span>,<span class="hljs-number">7</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">6</span>,<span class="hljs-number">5</span>,<span class="hljs-number">5</span>,<span class="hljs-number">3</span>,<span class="hljs-number">8</span>,<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">7</span>)
 &gt; x3=c(<span class="hljs-number">44</span>,<span class="hljs-number">51</span>,<span class="hljs-number">45</span>,<span class="hljs-number">46</span>,<span class="hljs-number">44</span>,<span class="hljs-number">46</span>,<span class="hljs-number">49</span>,<span class="hljs-number">52</span>,<span class="hljs-number">46</span>,<span class="hljs-number">46</span>,<span class="hljs-number">48</span>,<span class="hljs-number">47</span>,<span class="hljs-number">48</span>,<span class="hljs-number">45</span>,<span class="hljs-number">43</span>)
@@ -393,7 +611,7 @@ code {
 
 &gt; xx=t (x)%*%x
 &gt; xx
-     [,<span class="hljs-number">1</span>]    [,<span class="hljs-number">2</span>]  [,<span class="hljs-number">3</span>]   [,<span class="hljs-number">4</span>]
+     [,<span class="hljs-number">1</span>] ​  [,<span class="hljs-number">2</span>]  [,<span class="hljs-number">3</span>]   [,<span class="hljs-number">4</span>]
 [<span class="hljs-number">1</span>,]   <span class="hljs-number">15</span>    <span class="hljs-number">7738</span>    <span class="hljs-number">85</span>    <span class="hljs-number">700</span>
 [<span class="hljs-number">2</span>,] <span class="hljs-number">7738</span> <span class="hljs-number">3998828</span> <span class="hljs-number">43902</span> <span class="hljs-number">360943</span>
 [<span class="hljs-number">3</span>,]   <span class="hljs-number">85</span>   <span class="hljs-number">43902</span>   <span class="hljs-number">515</span>   <span class="hljs-number">3942</span>
@@ -424,6 +642,129 @@ code {
 </div></code></pre>
 <hr>
 <h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A3">លំហាត់ទី ២៣</h2>
+<h4 id="a-determine-the-regression-equation">A. Determine the regression equation.</h4>
+<p><strong>តាង (Let):</strong></p>
+<ul>
+<li>$Y$ = Gross Profit</li>
+<li>$X_1$ = Number of Employees</li>
+<li>$X_2$ = Consecutive Dividends</li>
+<li>$X_3$ = Beginning Inventory</li>
+</ul>
+<p><strong>តាមរូបមន្ត (Formula):</strong><br>
+$MLR : \hat{y} = b_0 + b_1 X_1 + b_2 X_2 + b_3 X_3$</p>
+<p><strong>តាមតារាង យើងអាចគណនា (Calculations from table):</strong></p>
+<ul>
+<li>$n = 16$</li>
+<li>$\sum Y = 51450$</li>
+<li>$\sum X_1 = 5275$</li>
+<li>$\sum X_2 = 882$</li>
+<li>$\sum X_3 = 51989$</li>
+<li>$\sum X_1 Y = 22,758,850$</li>
+<li>$\sum X_2 Y = 3,520,970$</li>
+<li>$\sum X_3 Y = 251,689,300$</li>
+<li>$\sum X_1 X_2 = 374,600$</li>
+<li>$\sum X_2 X_3 = 3,984,674$</li>
+<li>$\sum X_1 X_3 = 26,116,730$</li>
+<li>$\sum X_1^2 = 2,664,575$</li>
+<li>$\sum X_2^2 = 66,870$</li>
+<li>$\sum X_3^2 = 347,290,165$</li>
+</ul>
+<hr>
+<h3 id="matrix-formulation">Matrix Formulation</h3>
+<p><strong>តាង $X$ ជាម៉ាទ្រីស (Matrix X):</strong>
+$$X = \begin{pmatrix} 1 &amp; 140 &amp; 12 &amp; 1800 \ 1 &amp; 65 &amp; 21 &amp; 320 \ 1 &amp; 130 &amp; 42 &amp; 820 \ \vdots &amp; \vdots &amp; \vdots &amp; \vdots \ 1 &amp; 150 &amp; 24 &amp; 1300 \end{pmatrix}$$</p>
+<p><strong>ម៉ាទ្រីស $(X^T X)$ (Normal Equations Matrix):</strong>
+$$(X^T X) = \begin{pmatrix} n &amp; \sum X_1 &amp; \sum X_2 &amp; \sum X_3 \ \sum X_1 &amp; \sum X_1^2 &amp; \sum X_1 X_2 &amp; \sum X_1 X_3 \ \sum X_2 &amp; \sum X_1 X_2 &amp; \sum X_2^2 &amp; \sum X_2 X_3 \ \sum X_3 &amp; \sum X_1 X_3 &amp; \sum X_2 X_3 &amp; \sum X_3^2 \end{pmatrix}$$</p>
+<p><strong>ជំនួសតម្លៃ (Substituting values):</strong>
+$$X^T X = \begin{pmatrix} 16 &amp; 5275 &amp; 882 &amp; 51989 \ 5275 &amp; 2664575 &amp; 374600 &amp; 26116730 \ 882 &amp; 374600 &amp; 66870 &amp; 3984674 \ 51989 &amp; 26116730 &amp; 3984674 &amp; 347290165 \end{pmatrix}$$</p>
+<p><strong>នោះម៉ាទ្រីសច្រាសនៃ $(X^T X)^{-1}$ គឺ៖</strong></p>
+<p>$$(X^T X)^{-1} = \begin{pmatrix} 2.453364 &amp; -1.995035 &amp; -2.604604 &amp; 8.160561 \ -1.995035 &amp; 2.461102 &amp; -6.027668 &amp; -8.605383 \ -2.604604 &amp; -6.027668 &amp; 1.037929 &amp; -3.476838 \ 8.160561 &amp; -8.605383 &amp; -3.476838 &amp; 1.211837 \end{pmatrix}$$</p>
+<p><strong>ម្យ៉ាងវិញទៀត (Furthermore):</strong></p>
+<p>$$X^T Y = \begin{pmatrix} \sum y \ \sum x_1 y \ \sum x_2 y \ \sum x_3 y \end{pmatrix} = \begin{pmatrix} 965.2808939 \ 2.8653231 \ 6.7537560 \ 0.2872553 \end{pmatrix}$$</p>
+<p><strong>តាមរូបមន្ត (According to the formula):</strong><br>
+$$\beta = (X^T X)^{-1} (X^T Y)$$
+$$\Rightarrow \beta= \begin{pmatrix} 51450 \ 22758850 \ 3520970 \ 251689300 \end{pmatrix}$$</p>
+<p><strong>យើងទទួលបាន :</strong></p>
+<ul>
+<li>$b_0 = 965.2808939$</li>
+<li>$b_1 = 2.8653231$</li>
+<li>$b_2 = 6.7537560$</li>
+<li>$b_3 = 0.2872553$</li>
+</ul>
+<p><strong>សមីការ MLR (MLR Equation):</strong>
+$$\hat{y} = b_0 + b_1 X_1 + b_2 X_2 + b_3 X_3$$
+$$\Rightarrow \hat{y} = 965.2808939 + 2.8653231 X_1 + 6.7537560 X_2 + 0.2872553 X_3$$</p>
+<hr>
+<h3 id="b-interpret-the-meaning-of-slopes">B. Interpret the Meaning of Slopes</h3>
+<ul>
+<li>
+<p><strong>$b_1 = 2.8653231$</strong><br>
+មានន័យថា ពេលដែល dividends and beginning inventory រក្សានៅថេរ បើចំនួនបុគ្គលិកកើនឡើង 1 នាក់ នោះប្រាក់ចំណេញ (Y) នឹងកើនឡើងប្រហែល 3 ឯកតា។</p>
+<!-- *(Meaning: When dividends and beginning inventory remain constant, if the number of employees increases by 1, then gross profit (Y) will increase by approximately 3 units.)* -->
+</li>
+<li>
+<p><strong>$b_2 = 6.7537560$</strong><br>
+មានន័យថា នៅពេលដែលចំនួនបុគ្គលិក និង beginning inventory ថេរ បើ dividends កើនឡើង នោះប្រាក់ចំណេញ (Y) នឹងកើនឡើងប្រហែល 7 ឯកតា។</p>
+<!-- *(Meaning: When the number of employees and beginning inventory are constant, if dividends increase, then gross profit (Y) will increase by approximately 7 units.)* -->
+</li>
+</ul>
+<h3 id="23-continued">23. (Continued)</h3>
+<ul>
+<li><strong>$b_3 = 0.2872553$</strong><br>
+មានន័យថានៅពេលដែលចំនួនបុគ្គលិក និង dividends នៅថេរ ហើយ beginning inventory កើនឡើង 1 ឯកតា នោះប្រាក់ចំណេញនឹងកើនឡើង ប្រហែល 0.287 ឯកតា។<br>
+<em>(Meaning: When the number of employees and dividends remain constant, if the beginning inventory increases by 1 unit, the gross profit will increase by approximately 0.287 units.)</em></li>
+</ul>
+<hr>
+<h4 id="c-interpret-the-meaning-of-the-regression-coefficient-for-b0">C. Interpret the meaning of the regression coefficient for $b_0$</h4>
+<p><strong>$b_0 = 965.2808939$</strong><br>
+នៅពេលដែលចំនួនបុគ្គលិក dividends និង beginning inventory ស្មើ 0 នោះ ប្រាក់ចំណេញ នឹងកើនឡើង ប្រហែល 965 ឯកតា។<br>
+<em>(Meaning: When the number of employees, dividends, and beginning inventory are all 0, the gross profit is approximately 965 units.)</em></p>
+<hr>
+<h4 id="d-prediction">D. Prediction</h4>
+<p>មានសមីការ (Equation): $\hat{y} = 965.28 + 2.865 X_1 + 6.754 X_2 + 0.287 X_3$<br>
+ប្រសិនបើ (Given): $X_1 = 1; X_2 = 2; X_3 = 3$</p>
+<p>$$\Rightarrow \hat{y} = 965.28 + 2.865(1) + 6.754(2) + 0.287(3)$$
+$$\text{ដូចនេះ (Therefore): } \hat{y} = 982.506$$</p>
+<hr>
+<h3 id="c-coefficient-of-determination-r2">C. Coefficient of Determination $r^2$</h3>
+<p><strong>តាមរូបមន្ត (Formula):</strong><br>
+$$r^2 = \frac{SSR}{SST}$$</p>
+<p><strong>ដោយ:</strong><br>
+$$SST = \sum Y^2 - \frac{(\sum Y)^2}{n} = 16.23$$<br>
+$$SSR = 13.41$$</p>
+<p><strong>គណនាបាន (Calculation):</strong><br>
+$$r^2 = \frac{13.41}{16.23} = 0.826 \approx 82.6%$$</p>
+<p><strong>ដូចនេះ (Therefore):</strong><br>
+$$r^2 \approx 82.6%$$</p>
+<hr>
+<h3 id="d-delete-any-independent-variable">D. Delete any independent variable</h3>
+<ul>
+<li><strong>Income:</strong> $p = 0.012 &lt; 0.05$ (ពិត - Significant)</li>
+<li><strong>Size:</strong> $p &lt; 0.001$ (ពិត - Significant)</li>
+</ul>
+<p><strong>ដូចនេះ</strong> មិនលុបអថេរមួយណាឡើយ (Do not delete any variable).</p>
+<hr>
+<h3 id="e-residuals-and-normality-assumption">E. Residuals and normality assumption</h3>
+<ul>
+<li><strong>Jarque-Bera p-value:</strong> $0.872$</li>
+<li><strong>Residuals have symmetry:</strong> Good</li>
+</ul>
+<p><strong>ដូចនេះ</strong>  Normality assumption no problem.</p>
+<hr>
+<h3 id="f-fitted-values-vs-residuals">F. Fitted values Vs residuals</h3>
+<ul>
+<li><strong>Residuals:</strong> Good</li>
+<li><strong>Funnel shape:</strong> Good (No funnel shape detected)</li>
+</ul>
+<p><strong>ដូចនេះ</strong></p>
+<ul>
+<li>Heteroscedasticity no problem.</li>
+<li>Model = Good.</li>
+<li>Family Size = Good.</li>
+<li><strong>Assumptions no problem.</strong></li>
+</ul>
+<hr>
+<h3 id="%E1%9E%99%E1%9E%BE%E1%9E%84%E1%9E%80%E1%9F%8F%E1%9E%92%E1%9F%92%E1%9E%9C%E1%9E%BE%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%93%E1%9F%81%E1%9F%87%E1%9E%8F%E1%9E%B6%E1%9E%98-r-program-%E1%9E%95%E1%9E%84%E1%9E%8A%E1%9F%82%E1%9E%9A">យើងក៏ធ្វើលំហាត់នេះតាម R Program ផងដែរ</h3>
 <pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">140</span>,<span class="hljs-number">65</span>,<span class="hljs-number">130</span>,<span class="hljs-number">115</span>,<span class="hljs-number">390</span>,<span class="hljs-number">670</span>,<span class="hljs-number">205</span>,<span class="hljs-number">40</span>,<span class="hljs-number">480</span>,<span class="hljs-number">810</span>,<span class="hljs-number">120</span>,<span class="hljs-number">590</span>,<span class="hljs-number">440</span>,<span class="hljs-number">280</span>,<span class="hljs-number">650</span>,<span class="hljs-number">150</span>)
 &gt; x2=c(<span class="hljs-number">12</span>,<span class="hljs-number">21</span>,<span class="hljs-number">42</span>,<span class="hljs-number">80</span>,<span class="hljs-number">120</span>,<span class="hljs-number">64</span>,<span class="hljs-number">43</span>,<span class="hljs-number">14</span>,<span class="hljs-number">88</span>,<span class="hljs-number">98</span>,<span class="hljs-number">44</span>,<span class="hljs-number">110</span>,<span class="hljs-number">38</span>,<span class="hljs-number">24</span>,<span class="hljs-number">60</span>,<span class="hljs-number">24</span>)
 &gt; x3=c(<span class="hljs-number">1800</span> ,<span class="hljs-number">320</span>,<span class="hljs-number">820</span>,<span class="hljs-number">76</span>,<span class="hljs-number">3600</span>,<span class="hljs-number">8400</span>,<span class="hljs-number">508</span>,<span class="hljs-number">870</span>,<span class="hljs-number">5500</span>,<span class="hljs-number">9875</span>,<span class="hljs-number">6500</span>,<span class="hljs-number">9130</span>,<span class="hljs-number">1200</span>,<span class="hljs-number">890</span>,<span class="hljs-number">1200</span>,<span class="hljs-number">1300</span>)
@@ -554,81 +895,7 @@ code {
 </div></code></pre>
 <hr>
 <h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A5">លំហាត់ទី ២៥</h2>
-<pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">190</span>, <span class="hljs-number">121</span>, <span class="hljs-number">161</span>, <span class="hljs-number">161</span>, <span class="hljs-number">179</span>, <span class="hljs-number">99</span>, <span class="hljs-number">114</span>, <span class="hljs-number">202</span>, <span class="hljs-number">184</span>, <span class="hljs-number">90</span>, <span class="hljs-number">181</span>, <span class="hljs-number">143</span>, <span class="hljs-number">132</span>, <span class="hljs-number">127</span>, <span class="hljs-number">153</span>, <span class="hljs-number">145</span>, <span class="hljs-number">174</span>, <span class="hljs-number">177</span>, <span class="hljs-number">188</span>, <span class="hljs-number">153</span>, <span class="hljs-number">150</span>, <span class="hljs-number">173</span>, <span class="hljs-number">163</span>, <span class="hljs-number">150</span>, <span class="hljs-number">139</span>)
-&gt; x2=c(<span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">14</span>)
-&gt; x3=c(<span class="hljs-number">53</span>, <span class="hljs-number">49</span>, <span class="hljs-number">44</span>, <span class="hljs-number">39</span>, <span class="hljs-number">53</span>, <span class="hljs-number">46</span>, <span class="hljs-number">42</span>, <span class="hljs-number">49</span>, <span class="hljs-number">37</span>, <span class="hljs-number">43</span>, <span class="hljs-number">48</span>, <span class="hljs-number">54</span>, <span class="hljs-number">44</span>, <span class="hljs-number">37</span>, <span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">52</span>, <span class="hljs-number">47</span>, <span class="hljs-number">49</span>, <span class="hljs-number">53</span>, <span class="hljs-number">58</span>, <span class="hljs-number">42</span>, <span class="hljs-number">46</span>, <span class="hljs-number">50</span>, <span class="hljs-number">45</span>)
-&gt; x4=c(<span class="hljs-number">230</span>, <span class="hljs-number">370</span>, <span class="hljs-number">397</span>, <span class="hljs-number">181</span>, <span class="hljs-number">378</span>, <span class="hljs-number">304</span>, <span class="hljs-number">285</span>, <span class="hljs-number">551</span>, <span class="hljs-number">370</span>, <span class="hljs-number">135</span>, <span class="hljs-number">332</span>, <span class="hljs-number">217</span>, <span class="hljs-number">490</span>, <span class="hljs-number">220</span>, <span class="hljs-number">270</span>, <span class="hljs-number">279</span>, <span class="hljs-number">329</span>, <span class="hljs-number">274</span>, <span class="hljs-number">433</span>, <span class="hljs-number">333</span>, <span class="hljs-number">148</span>, <span class="hljs-number">390</span>, <span class="hljs-number">142</span>, <span class="hljs-number">343</span>, <span class="hljs-number">373</span>)
-&gt; 
-&gt; y=c(<span class="hljs-number">40.3</span>, <span class="hljs-number">39.6</span>, <span class="hljs-number">40.8</span>, <span class="hljs-number">40.3</span>, <span class="hljs-number">40.0</span>, <span class="hljs-number">38.1</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">40.7</span>, <span class="hljs-number">40.8</span>, <span class="hljs-number">37.1</span>, <span class="hljs-number">39.9</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">38.0</span>, <span class="hljs-number">39.0</span>, <span class="hljs-number">39.5</span>, <span class="hljs-number">40.6</span>, <span class="hljs-number">40.3</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">41.7</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">40.6</span>, <span class="hljs-number">40.4</span>, <span class="hljs-number">40.9</span>, <span class="hljs-number">40.1</span>, <span class="hljs-number">38.5</span>)
-&gt; x=matrix(c(rep(<span class="hljs-number">1</span>,<span class="hljs-number">25</span>),x1,x2,x3,x4),ncol=<span class="hljs-number">5</span>,nrow=<span class="hljs-number">25</span>)
-&gt; x
-      [,<span class="hljs-number">1</span>] [,<span class="hljs-number">2</span>] [,<span class="hljs-number">3</span>] [,<span class="hljs-number">4</span>] [,<span class="hljs-number">5</span>]
- [<span class="hljs-number">1</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">190</span>   <span class="hljs-number">14</span>   <span class="hljs-number">53</span>  <span class="hljs-number">230</span>
- [<span class="hljs-number">2</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">121</span>   <span class="hljs-number">15</span>   <span class="hljs-number">49</span>  <span class="hljs-number">370</span>
- [<span class="hljs-number">3</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">161</span>   <span class="hljs-number">14</span>   <span class="hljs-number">44</span>  <span class="hljs-number">397</span>
- [<span class="hljs-number">4</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">161</span>   <span class="hljs-number">14</span>   <span class="hljs-number">39</span>  <span class="hljs-number">181</span>
- [<span class="hljs-number">5</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">179</span>   <span class="hljs-number">14</span>   <span class="hljs-number">53</span>  <span class="hljs-number">378</span>
- [<span class="hljs-number">6</span>,]    <span class="hljs-number">1</span>   <span class="hljs-number">99</span>   <span class="hljs-number">14</span>   <span class="hljs-number">46</span>  <span class="hljs-number">304</span>
- [<span class="hljs-number">7</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">114</span>   <span class="hljs-number">15</span>   <span class="hljs-number">42</span>  <span class="hljs-number">285</span>
- [<span class="hljs-number">8</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">202</span>   <span class="hljs-number">14</span>   <span class="hljs-number">49</span>  <span class="hljs-number">551</span>
- [<span class="hljs-number">9</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">184</span>   <span class="hljs-number">13</span>   <span class="hljs-number">37</span>  <span class="hljs-number">370</span>
-[<span class="hljs-number">10</span>,]    <span class="hljs-number">1</span>   <span class="hljs-number">90</span>   <span class="hljs-number">14</span>   <span class="hljs-number">43</span>  <span class="hljs-number">135</span>
-[<span class="hljs-number">11</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">181</span>   <span class="hljs-number">14</span>   <span class="hljs-number">48</span>  <span class="hljs-number">332</span>
-[<span class="hljs-number">12</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">143</span>   <span class="hljs-number">15</span>   <span class="hljs-number">54</span>  <span class="hljs-number">217</span>
-[<span class="hljs-number">13</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">132</span>   <span class="hljs-number">14</span>   <span class="hljs-number">44</span>  <span class="hljs-number">490</span>
-[<span class="hljs-number">14</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">127</span>   <span class="hljs-number">14</span>   <span class="hljs-number">37</span>  <span class="hljs-number">220</span>
-[<span class="hljs-number">15</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">153</span>   <span class="hljs-number">14</span>   <span class="hljs-number">50</span>  <span class="hljs-number">270</span>
-[<span class="hljs-number">16</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">145</span>   <span class="hljs-number">14</span>   <span class="hljs-number">50</span>  <span class="hljs-number">279</span>
-[<span class="hljs-number">17</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">174</span>   <span class="hljs-number">15</span>   <span class="hljs-number">52</span>  <span class="hljs-number">329</span>
-[<span class="hljs-number">18</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">177</span>   <span class="hljs-number">15</span>   <span class="hljs-number">47</span>  <span class="hljs-number">274</span>
-[<span class="hljs-number">19</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">188</span>   <span class="hljs-number">15</span>   <span class="hljs-number">49</span>  <span class="hljs-number">433</span>
-[<span class="hljs-number">20</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">153</span>   <span class="hljs-number">15</span>   <span class="hljs-number">53</span>  <span class="hljs-number">333</span>
-[<span class="hljs-number">21</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">150</span>   <span class="hljs-number">16</span>   <span class="hljs-number">58</span>  <span class="hljs-number">148</span>
-[<span class="hljs-number">22</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">173</span>   <span class="hljs-number">13</span>   <span class="hljs-number">42</span>  <span class="hljs-number">390</span>
-[<span class="hljs-number">23</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">163</span>   <span class="hljs-number">14</span>   <span class="hljs-number">46</span>  <span class="hljs-number">142</span>
-[<span class="hljs-number">24</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">150</span>   <span class="hljs-number">15</span>   <span class="hljs-number">50</span>  <span class="hljs-number">343</span>
-[<span class="hljs-number">25</span>,]    <span class="hljs-number">1</span>  <span class="hljs-number">139</span>   <span class="hljs-number">14</span>   <span class="hljs-number">45</span>  <span class="hljs-number">373</span>
-&gt; 
-&gt; xx=t(x)%*%x
-&gt; xx
-     [,<span class="hljs-number">1</span>]    [,<span class="hljs-number">2</span>]   [,<span class="hljs-number">3</span>]   [,<span class="hljs-number">4</span>]    [,<span class="hljs-number">5</span>]
-[<span class="hljs-number">1</span>,]   <span class="hljs-number">25</span>    <span class="hljs-number">3849</span>    <span class="hljs-number">358</span>   <span class="hljs-number">1180</span>    <span class="hljs-number">7774</span>
-[<span class="hljs-number">2</span>,] <span class="hljs-number">3849</span>  <span class="hljs-number">612555</span>  <span class="hljs-number">55049</span> <span class="hljs-number">182491</span> <span class="hljs-number">1223026</span>
-[<span class="hljs-number">3</span>,]  <span class="hljs-number">358</span>   <span class="hljs-number">55049</span>   <span class="hljs-number">5138</span>  <span class="hljs-number">16953</span>  <span class="hljs-number">110956</span>
-[<span class="hljs-number">4</span>,] <span class="hljs-number">1180</span>  <span class="hljs-number">182491</span>  <span class="hljs-number">16953</span>  <span class="hljs-number">56392</span>  <span class="hljs-number">366416</span>
-[<span class="hljs-number">5</span>,] <span class="hljs-number">7774</span> <span class="hljs-number">1223026</span> <span class="hljs-number">110956</span> <span class="hljs-number">366416</span> <span class="hljs-number">2684616</span>
-&gt; 
-&gt; 
-&gt; solve(xx)
-             [,<span class="hljs-number">1</span>]          [,<span class="hljs-number">2</span>]          [,<span class="hljs-number">3</span>]          [,<span class="hljs-number">4</span>]          [,<span class="hljs-number">5</span>]
-[<span class="hljs-number">1</span>,] <span class="hljs-number">25.511713049</span> -<span class="hljs-number">1.564751e-02</span> -<span class="hljs-number">1.8954295019</span>  <span class="hljs-number">9.993004e-02</span> -<span class="hljs-number">2.047756e-03</span>
-[<span class="hljs-number">2</span>,] -<span class="hljs-number">0.015647507</span>  <span class="hljs-number">6.766347e-05</span>  <span class="hljs-number">0.0010314042</span> -<span class="hljs-number">1.657402e-04</span> -<span class="hljs-number">5.520750e-06</span>
-[<span class="hljs-number">3</span>,] -<span class="hljs-number">1.895429502</span>  <span class="hljs-number">1.031404e-03</span>  <span class="hljs-number">0.1665362812</span> -<span class="hljs-number">1.439384e-02</span>  <span class="hljs-number">1.004122e-04</span>
-[<span class="hljs-number">4</span>,]  <span class="hljs-number">0.099930035</span> -<span class="hljs-number">1.657402e-04</span> -<span class="hljs-number">0.0143938389</span>  <span class="hljs-number">2.778662e-03</span>  <span class="hljs-number">1.782448e-06</span>
-[<span class="hljs-number">5</span>,] -<span class="hljs-number">0.002047756</span> -<span class="hljs-number">5.520750e-06</span>  <span class="hljs-number">0.0001004122</span>  <span class="hljs-number">1.782448e-06</span>  <span class="hljs-number">4.424031e-06</span>
-&gt; 
-&gt; 
-&gt; 
-&gt; xy=t(x)%*%y
-&gt; xy
-         [,<span class="hljs-number">1</span>]
-[<span class="hljs-number">1</span>,]    <span class="hljs-number">998.2</span>
-[<span class="hljs-number">2</span>,] <span class="hljs-number">154206.6</span>
-[<span class="hljs-number">3</span>,]  <span class="hljs-number">14297.5</span>
-[<span class="hljs-number">4</span>,]  <span class="hljs-number">47148.0</span>
-[<span class="hljs-number">5</span>,] <span class="hljs-number">310708.4</span>
-&gt; 
-&gt; 
-&gt; bete=solve(xx)%*%xy
-&gt; bete
-             [,<span class="hljs-number">1</span>]
-[<span class="hljs-number">1</span>,] <span class="hljs-number">28.186258525</span>
-[<span class="hljs-number">2</span>,]  <span class="hljs-number">0.031652240</span>
-[<span class="hljs-number">3</span>,]  <span class="hljs-number">0.642266980</span>
-[<span class="hljs-number">4</span>,] -<span class="hljs-number">0.041823083</span>
-[<span class="hljs-number">5</span>,] -<span class="hljs-number">0.001140504</span>
-&gt; <span class="hljs-comment"># 25</span>
-&gt; income &lt;- c(<span class="hljs-number">48157</span>, <span class="hljs-number">48568</span>, <span class="hljs-number">46816</span>, <span class="hljs-number">34876</span>, <span class="hljs-number">35478</span>, <span class="hljs-number">34465</span>, <span class="hljs-number">35026</span>, <span class="hljs-number">38599</span>, <span class="hljs-number">33315</span>)
+<pre class="hljs"><code><div>&gt; income &lt;- c(<span class="hljs-number">48157</span>, <span class="hljs-number">48568</span>, <span class="hljs-number">46816</span>, <span class="hljs-number">34876</span>, <span class="hljs-number">35478</span>, <span class="hljs-number">34465</span>, <span class="hljs-number">35026</span>, <span class="hljs-number">38599</span>, <span class="hljs-number">33315</span>)
 &gt; age &lt;- c(<span class="hljs-number">57.7</span>, <span class="hljs-number">60.7</span>, <span class="hljs-number">47.9</span>, <span class="hljs-number">38.4</span>, <span class="hljs-number">42.8</span>, <span class="hljs-number">35.4</span>, <span class="hljs-number">39.5</span>, <span class="hljs-number">65.6</span>, <span class="hljs-number">27.0</span>)
 &gt; pop400 &lt;- c(<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">0</span>)
 &gt; data &lt;- data.frame(income, age, pop400)
@@ -715,6 +982,109 @@ Multiple R-squared:  <span class="hljs-number">0.7882</span>,	Adjusted R-squared
 </div></code></pre>
 <hr>
 <h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A6">លំហាត់ទី ២៦</h2>
+<h2 id="a-correlation-matrix-and-multicollinearity">A. Correlation matrix and Multicollinearity</h2>
+<p><strong>តាង:</strong></p>
+<ul>
+<li>$y = \text{food}$</li>
+<li>$X_1 = \text{Income}$</li>
+<li>$X_2 = \text{Size}$</li>
+</ul>
+<p>$\Rightarrow \text{MLR: } \hat{y} = b_0 + b_1 x_1 + b_2 x_2$</p>
+<p><strong>តាមតារាងយើងបាន:</strong></p>
+<ul>
+<li>$\sum X_1 = 2017.08$</li>
+<li>$\sum X_2 = 90$</li>
+<li>$\sum Y = 121.68$</li>
+<li>$\sum X_1^2 = 197945.47$</li>
+<li>$\sum X_2^2 = 424$</li>
+<li>$\sum X_1 Y = 9955.40$</li>
+<li>$\sum X_1 X_2 = 7078.14$</li>
+<li>$n = 25$</li>
+<li>$\sum X_2 Y = 479.40$</li>
+</ul>
+<p><strong>តាម</strong> $\hat{\beta} = (X^T X)^{-1} (X^T Y)$:</p>
+<p>$$
+% \begin{pmatrix}
+% b_0 \
+% b_1 \
+% b_2
+% \end{pmatrix} =
+\ =
+\begin{pmatrix}
+n &amp; \sum X_1 &amp; \sum X_2 \
+\sum X_1 &amp; \sum X_1^2 &amp; \sum X_1 X_2 \
+\sum X_2 &amp; \sum X_1 X_2 &amp; \sum X_2^2
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+\sum Y \
+\sum X_1 Y \
+\sum X_2 Y
+\end{pmatrix}
+$$</p>
+<p>$$
+= \begin{pmatrix}
+25 &amp; 2017.08 &amp; 90 \
+2017.08 &amp; 197945.47 &amp; 7078.14 \
+90 &amp; 7078.14 &amp; 424
+\end{pmatrix}^{-1}
+\begin{pmatrix}
+121.68 \
+9955.40 \
+479.40
+\end{pmatrix}
+$$</p>
+<p>$$
+\hat{\beta} = \begin{pmatrix}
+2.844 \
+0.0061 \
+0.4248
+\end{pmatrix}
+$$</p>
+<p><strong>គេបាន MLR:</strong> $\hat{y} = 2.844 + 0.0061x_1 + 0.4248x_2$</p>
+<hr>
+<h2 id="b-regression-equation-and-interpretation">B. Regression equation and interpretation</h2>
+<h3 id="regression-equation">+ Regression equation:</h3>
+<p>$$\hat{y} = 2.844 + 0.0061x_1 + 0.4248x_2$$
+$$\hat{food} = 2.844 + 0.0061(\text{Income}) + 0.4248(\text{Size})$$</p>
+<!-- > **ចំណាំ:** Income and food គិតជាពាន់ដុល្លារ / ឆ្នាំ -->
+<h3 id="interpretation">+ Interpretation:</h3>
+<ul>
+<li><strong>Income:</strong> បើចំណូលកើន $1000/ ឆ្នាំ ចំណាយអាហារកើន $6.10$</li>
+<li><strong>Size:</strong> បន្ថែមសមាជិកគ្រួសារ 1 នាក់ នោះចំណាយអាហារកើន $425 / ឆ្នាំ។</li>
+</ul>
+<h3 id="c-coefficient-of-determination-r2">C. Coefficient of determination $r^2$</h3>
+<p><strong>តាម:</strong> $r^2 = \frac{SSR}{SST}$</p>
+<p>ដោយ $SST = \sum Y^2 - \frac{(\sum Y)^2}{n} = 16.23$
+$SSR = 13.41$</p>
+<p><strong>គេបាន:</strong>
+$r^2 = \frac{13.41}{16.23} = 0.826 \approx 82.6%$</p>
+<p><strong>ដូចនេះ:</strong> $r^2 \approx 82.6%$</p>
+<hr>
+<h3 id="d-delete-any-independent-variable">D. Delete any independent variable</h3>
+<ul>
+<li><strong>Income:</strong> $p = 0.012 &lt; 0.05$ (ពិត)</li>
+<li><strong>Size:</strong> $p &lt; 0.001$ (ពិត)</li>
+</ul>
+<p>$\Rightarrow$ <strong>មិនលុបអថេរមួយណាឡើយ</strong></p>
+<hr>
+<h3 id="e-residuals-and-normality-assumption">E. Residuals and normality assumption</h3>
+<ul>
+<li>Jarque-Bera $p\text{-value} = 0.872$</li>
+<li>Residuals have symmetry good
+$\Rightarrow$ <strong>Normality assumption no problem</strong></li>
+</ul>
+<hr>
+<h3 id="f-fitted-values-vs-residuals">F. Fitted values Vs residuals</h3>
+<ul>
+<li>Residuals = good</li>
+<li>Funnel shape = good
+$\Rightarrow$ <strong>Heteroscedasticity no problem</strong></li>
+<li>Model = good</li>
+<li>Family Size = good</li>
+</ul>
+<p>$\Rightarrow$ <strong>Assumptions no problem.</strong></p>
+<hr>
+<h3 id="%E1%9E%99%E1%9E%BE%E1%9E%84%E1%9E%80%E1%9F%8F%E1%9E%92%E1%9F%92%E1%9E%9C%E1%9E%BE%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%93%E1%9F%81%E1%9F%87%E1%9E%8F%E1%9E%B6%E1%9E%98-r-program-%E1%9E%95%E1%9E%84%E1%9E%8A%E1%9F%82%E1%9E%9A">យើងក៏ធ្វើលំហាត់នេះតាម R Program ផងដែរ</h3>
 <pre class="hljs"><code><div>&gt; x1=c(<span class="hljs-number">73.98</span>, <span class="hljs-number">54.90</span>, <span class="hljs-number">94.14</span>, <span class="hljs-number">52.02</span>, <span class="hljs-number">65.70</span>, <span class="hljs-number">53.64</span>, <span class="hljs-number">79.74</span>, <span class="hljs-number">68.58</span>, <span class="hljs-number">165.60</span>, <span class="hljs-number">64.80</span>, <span class="hljs-number">138.42</span>, <span class="hljs-number">125.82</span>, <span class="hljs-number">77.58</span>, <span class="hljs-number">171.36</span>, <span class="hljs-number">82.08</span>, <span class="hljs-number">141.30</span>, <span class="hljs-number">36.90</span>, <span class="hljs-number">56.88</span>, <span class="hljs-number">71.82</span>, <span class="hljs-number">69.48</span>, <span class="hljs-number">54.36</span>, <span class="hljs-number">87.66</span>, <span class="hljs-number">38.16</span>, <span class="hljs-number">43.74</span>, <span class="hljs-number">48.42</span>)
 &gt; x2=c(<span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">9</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">5</span>)
 
@@ -777,7 +1147,7 @@ Multiple R-squared:  <span class="hljs-number">0.7882</span>,	Adjusted R-squared
 [<span class="hljs-number">3</span>,] <span class="hljs-number">0.4247572</span>
 </div></code></pre>
 <hr>
-<h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%8F%E1%9E%B8-%E1%9F%A2%E1%9F%A7">លំហាត់តី ២៧</h2>
+<h2 id="%E1%9E%9B%E1%9F%86%E1%9E%A0%E1%9E%B6%E1%9E%8F%E1%9F%8B%E1%9E%91%E1%9E%B8-%E1%9F%A2%E1%9F%A7">លំហាត់ទី ២៧</h2>
 <pre class="hljs"><code><div>&gt;x1=c(<span class="hljs-number">3.245</span>, <span class="hljs-number">3.278</span>, <span class="hljs-number">3.52</span>, <span class="hljs-number">3.74</span>, <span class="hljs-number">3.52</span>, <span class="hljs-number">3.421</span>, <span class="hljs-number">3.41</span>, <span class="hljs-number">3.63</span>, <span class="hljs-number">3.355</span>, <span class="hljs-number">3.08</span>, <span class="hljs-number">3.025</span>, <span class="hljs-number">3.146</span>, <span class="hljs-number">3.465</span>, <span class="hljs-number">3.245</span>, <span class="hljs-number">3.025</span>)
 &gt; x2=c(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
  
