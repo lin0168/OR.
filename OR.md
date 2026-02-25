@@ -179,13 +179,15 @@ $MLR : \hat{y} = b_0 + b_1 X_1 + b_2 X_2 + b_3 X_3$
 
 ### Matrix Formulation
 
-**តាង $X$ ជាម៉ាទ្រីស (Matrix X):**
-$$X = \begin{pmatrix} 1 & 140 & 12 & 1800 \\ 1 & 65 & 21 & 320 \\ 1 & 130 & 42 & 820 \\ \vdots & \vdots & \vdots & \vdots \\ 1 & 150 & 24 & 1300 \end{pmatrix}$$
+* **តាង $X$ ជាម៉ាទ្រីស (Matrix X):**
+> $$X = \begin{pmatrix} 1 & 140 & 12 & 1800 \\ 1 & 65 & 21 & 320 \\ 1 & 130 & 42 & 820 \\ \vdots & \vdots & \vdots & \vdots \\ 1 & 150 & 24 & 1300 \end{pmatrix}$$
 
 **ម៉ាទ្រីស $(X^T X)$ (Normal Equations Matrix):**
+
 $$(X^T X) = \begin{pmatrix} n & \sum X_1 & \sum X_2 & \sum X_3 \\ \sum X_1 & \sum X_1^2 & \sum X_1 X_2 & \sum X_1 X_3 \\ \sum X_2 & \sum X_1 X_2 & \sum X_2^2 & \sum X_2 X_3 \\ \sum X_3 & \sum X_1 X_3 & \sum X_2 X_3 & \sum X_3^2 \end{pmatrix}$$
 
 **ជំនួសតម្លៃ (Substituting values):**
+
 $$X^T X = \begin{pmatrix} 16 & 5275 & 882 & 51989 \\ 5275 & 2664575 & 374600 & 26116730 \\ 882 & 374600 & 66870 & 3984674 \\ 51989 & 26116730 & 3984674 & 347290165 \end{pmatrix}$$
 
 **នោះម៉ាទ្រីសច្រាសនៃ $(X^T X)^{-1}$ គឺ៖**
