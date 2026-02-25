@@ -16,8 +16,8 @@
 ## លំហាត់ទី ២២
  ![Image](/image/22.1.jpg)
  ![Image](/image/22.2.jpg)
- ![Image](/image/22.3.jpg)
- ![Image](/image/22.4.jpg)
+ ![Image](/image/22.3.JPG)
+ ![Image](/image/22.4.JPG)
 
 
 ---
@@ -438,5 +438,6 @@ F-statistic: 11.16 on 2 and 6 DF,  p-value: 0.0095
 [3,]  1.307058
 ```
 ---
+
 
 <link rel="stylesheet" href="style.css">
