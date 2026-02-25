@@ -15,82 +15,63 @@
 
 ## លំហាត់ទី ២២
 ---
-##  a. Determine the regression equation.
+# 22. a. Determine the regression equation.
 
-**តាង:**
-* $Y$ = Daily Sales
-* $X_1$ = Store Area
-* $X_2$ = Parking Spaces
-* $X_3$ = Income
+**តាង (Let):**
+*   $Y$ = Daily Sales
+*   $X_1$ = Store Area
+*   $X_2$ = Parking Spaces
+*   $X_3$ = Income
 
-**តាមរូបមន្ត MLR:** 
-$$\hat{y} = b_0 + b_1X_1 + b_2X_2 + b_3X_3$$
-
-**តាមតារាងយើងគណនាបាន:**
-
-
-| Summation | Value | Summation | Value | Summation | Value |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| $\sum X_1$ | 8,220 | $\sum X_2$ | 92 | $\sum X_3$ | 743 |
-| $\sum X_1Y$ | 14,863,465 | $\sum X_2Y$ | 166,729 | $\sum X_3Y$ | 1,342,368 |
-| $\sum Y$ | 28,920 | $\sum X_1X_2$ | 47,976 | $\sum X_2X_3$ | 4,243 |
-| $\sum X_1^2$ | 4,931,159 | $\sum X_2^2$ | 564 | $\sum X_3^2$ | 34,607 |
-| $\sum X_1X_3$ | 381,669 | $n$ | 15 | | |
+**តាមរូបមន្ត (Formula):**
+MLR: $\hat{y} = b_0 + b_1X_1 + b_2X_2 + b_3X_3$
 
 ---
 
-### Matrix Representation
+### តាមតារាងយើងគណនាបាន (Calculations from table):
 
-**ហាង X =**
-$$
-\begin{bmatrix} 
-1 & 532 & 6 & 44 \\ 
-1 & 478 & 4 & 51 \\ 
-1 & 530 & 7 & 45 \\ 
-\vdots & \vdots & \vdots & \vdots \\ 
-1 & 482 & 7 & 43 
-\end{bmatrix}
-$$
 
-**តាមរូបមន្ត $(X^T X)$:**
-$$
-(X^T X) = \begin{bmatrix} 
-n & \sum X_1 & \sum X_2 & \sum X_3 \\ 
-\sum X_1 & \sum X_1^2 & \sum X_1X_2 & \sum X_1X_3 \\ 
-\sum X_2 & \sum X_1X_2 & \sum X_2^2 & \sum X_2X_3 \\ 
-\sum X_3 & \sum X_1X_3 & \sum X_2X_3 & \sum X_3^2 
-\end{bmatrix}
-$$
-
-**$\Rightarrow (X^T X) =$**
-$$
-\begin{bmatrix} 
-15 & 8,220 & 92 & 743 \\ 
-8,220 & 4,931,159 & 47,976 & 381,669 \\ 
-92 & 47,976 & 564 & 4,243 \\ 
-743 & 381,669 & 4,243 & 34,607 
-\end{bmatrix}
-$$
-### ការគណនាម៉ាទ្រីស និងសមីការ MLR
-
-**គេថា ម៉ាទ្រីសច្រាស់នៃ $X^T X$ គឺ:**
-
-$$
-(X^T X)^{-1} = \begin{bmatrix} 
-88.5827 & -8.78177 & -6.549371 & -0.845196 \\ 
--0.08781 & 1.480315 & -5.06807 & 0.000351 \\ 
--0.65493 & -5.06807 & 3.751051 & 0.010039 \\ 
--0.84519 & 2.515805 & 1.00397 & 0.0161111 
-\end{bmatrix}
-$$
-
-**ម្យ៉ាងទៀត** $X^T Y = \begin{bmatrix} \sum Y \\ \sum X_1 Y \\ \sum X_2 Y \\ \sum X_3 Y \end{bmatrix} = \begin{bmatrix} 27105 \\ 13988635 \\ 154023 \\ 1264323 \end{bmatrix}$
+| Summation | Value | Summation | Value |
+| :--- | :--- | :--- | :--- |
+| $\sum X_1$ | 8,220 | $\sum X_2$ | 92 |
+| $\sum X_3$ | 743 | $\sum X_1 Y$ | 14,863,465 |
+| $\sum X_2 Y$ | 166,729 | $\sum X_3 Y$ | 1,342,368 |
+| $\sum Y$ | 28,920 | $\sum X_1 X_2$ | 47,976 |
+| $\sum X_2 X_3$ | 4,243 | $\sum X_1^2$ | 4,931,152 |
+| $\sum X_2^2$ | 564 | $\sum X_3^2$ | 34,607 |
+| $\sum X_1 X_3$ | 381,669 | $n$ | 15 |
 
 ---
 
-**តាមរូបមន្ត** $\beta = (X^T X)^{-1}(X^T Y) = \begin{bmatrix} 1480.7446116 \\ 0.7314989 \\ 9.9914874 \\ -2.3082627 \end{bmatrix}$
+### Matrix Formulation
 
-**យើងទទួលបាន:**
+**តាង $X$ (Matrix $X$):**
+$$X = \begin{bmatrix} 1 & 532 & 6 & 44 \\ 1 & 478 & 4 & 51 \\ 1 & 530 & 7 & 45 \\ \vdots & \vdots & \vdots & \vdots \\ 1 & 482 & 7 & 43 \end{bmatrix}$$
+
+**រករាង $(X^T X)$ (Normal Equation Matrix):**
+$$(X^T X) = \begin{bmatrix} n & \sum X_1 & \sum X_2 & \sum X_3 \\ \sum X_1 & \sum X_1^2 & \sum X_1 X_2 & \sum X_1 X_3 \\ \sum X_2 & \sum X_1 X_2 & \sum X_2^2 & \sum X_2 X_3 \\ \sum X_3 & \sum X_1 X_3 & \sum X_2 X_3 & \sum X_3^2 \end{bmatrix}$$
+
+**ជំនួសតម្លៃ (Substituting values):**
+$$(X^T X) = \begin{bmatrix} 15 & 8,220 & 92 & 743 \\ 8,220 & 4,931,152 & 47,976 & 381,669 \\ 92 & 47,976 & 564 & 4,243 \\ 743 & 381,669 & 4,243 & 34,607 \end{bmatrix}$$
+**ការគណនាសមីការ Multiple Linear Regression (MLR)**
+
+**នោះម៉ាទ្រីសច្រាសនៃ $(X^T X)^{-1}$ គឺ៖**
+
+$$(X^T X)^{-1} = \begin{bmatrix} 88.5827 & -8.78177 & -6.549371 & -0.845196 \\ -0.08781 & 1.480315 & -5.06807 & 0.000351 \\ -0.65493 & -5.06807 & 3.751051 & 1.00397 \\ -0.84519 & 2.515805 & 1.00397 & 0.016111 \end{bmatrix}$$
+
+---
+
+**ម្យ៉ាងទៀត $X^T Y$ គឺ៖**
+
+$$X^T Y = \begin{bmatrix} \sum Y \\ \sum X_1 Y \\ \sum X_2 Y \\ \sum X_3 Y \end{bmatrix} = \begin{bmatrix} 27105 \\ 13988635 \\ 154023 \\ 1264323 \end{bmatrix}$$
+
+---
+
+**តាមរូបមន្ត $\beta = (X^T X)^{-1} (X^T Y)$ យើងទទួលបាន៖**
+
+$$\beta = \begin{bmatrix} 1480.7446116 \\ 0.7314989 \\ 9.9914874 \\ -2.3082627 \end{bmatrix}$$
+
+**នាំឱ្យមេគុណស្មើនឹង៖**
 * $b_0 = 1480.7446116$
 * $b_1 = 0.7314989$
 * $b_2 = 9.9914874$
@@ -98,114 +79,13 @@ $$
 
 ---
 
-**យើងបានសមីការ:**
-$\Rightarrow \text{MLR: } \hat{y} = b_0 + b_1 X_1 + b_2 X_2 + b_3 X_3$
+### យើងបានសមីការ (Final Regression Equation)
 
-**ដូចនេះ** $\hat{y} = 1480.7446116 + 0.7314989 X_1 + 9.9914874 X_2 - 2.3082627 X_3$
-## B. Interpret the meaning of the slopes
+$$\Rightarrow MLR: \hat{y} = b_0 + b_1 X_1 + b_2 X_2 + b_3 X_3$$
 
-- **b₁ = 0.7314989**មានន័យថា បើផ្ទៃដី (square foot) កើនឡើង 1 square foot នោះតម្លៃលក់នឹងកើនឡើងប្រហែល 0.7315$ ដោយសន្មត់ថា អថេរផ្សេងៗទៀតនៅថេរ (ceteris paribus)។
+**ដូចនេះ:**
+$$\hat{y} = 1480.7446116 + 0.7314989 X_1 + 9.9914874 X_2 - 2.3082627 X_3$$
 
-
--  **b₂ = 9.9914874** មានន័យថា បើអថេរ X₂ កើនឡើង 1 ឯកតា នោះតម្លៃលក់នឹងកើនឡើងប្រហែល 9.9914$ ដោយសន្មត់ថា អថេរផ្សេងទៀតនៅថេរ។
-
-- **b₃ = -2.3082627**មានន័យថា បើអថេរ X₃ កើនឡើង 1 ឯកតា នោះតម្លៃលក់នឹងថយចុះប្រហែល 2.3082$ ដោយសន្មត់ថា អថេរផ្សេងទៀតនៅថេរ។
----
-
-## C. Interpret the meaning of the regression coefficient for b₀
-
-- **b₀ = 1480.7446116**មានន័យថា នៅពេលអថេរឯករាជ្យទាំងអស់ស្មើ 0 (X₁ = 0, X₂ = 0, X₃ = 0) តម្លៃលក់ដែលបានព្យាករណ៍គឺប្រហែល 1480.7446$
-
----
-## D. Prediction the sales of the company
-
-**តាមរូបន្ត**
-
-\[
-r^2 = \frac{SSR}{SST}
-\]
-
-**Step 1: Calculate SSR**
-
-\[
-SSR = \beta^T \times Y - \frac{(\sum y)^2}{n}
-\]
-
-\[
-\sum y^2 = 48,990,775
-\]
-
-\[
-\beta^T =
-[1480.7446116,\ 0.7314989,\ 9.9914874,\ -2.3082627]
-\]
-
-\[
-Y =
-\begin{bmatrix}
-27105 \\
-13,988,685 \\
-154,021 \\
-1,204,323
-\end{bmatrix}
-\]
-
-\[
-SSR = 48,988,793 - 48,978,735
-\]
-
-\[
-SSR = 10,058
-\]
-
-
-**Step 2: Calculate SST**
-
-\[
-SST = \sum y^2 - \frac{(\sum y)^2}{n}
-\]
-
-\[
-SST = 48,990,775 - \frac{(27,105)^2}{15}
-\]
-
-\[
-SST = 12,040
-\]
-
-
-**Step 3: Calculate R²**
-
-\[
-R^2 = \frac{SSR}{SST}
-\]
-
-\[
-R^2 = \frac{10,058}{12,040}
-\]
-
-\[
-R^2 = 0.8358206 \approx 0.8354
-\]
-
-
-**Conclusion**
-\[
-R^2 = 83.54\%
-\]
-
- > **មានន័យថា 83.54% នៃការប្រែប្រួលតម្លៃលក់ អាចពន្យល់បានដោយម៉ូដែល regression នេះ ខណៈដែល 16.46% នៅសល់ត្រូវបានបណ្តាលដោយកត្តាផ្សេងៗ ដែលមិនបានបញ្ចូលក្នុងម៉ូដែល។**
-## E: Compute the Adjusted $r^2$
-
-
-### 2. Apply the Adjusted $r^2$ Formula
-**តាមរូបន្ត្ត**
-$$r^2_{adj} = 1 - \frac{\frac{SS_{res}}{n - k}}{\frac{SST}{n - 1}}$$
-
-**គេបាន**
-$$r^2_{adj} = 1 - \frac{\frac{1,982}{15 - 3}}{\frac{12,040}{15 - 1}}$$
-$$r^2_{adj} = 1 - \frac{\frac{1,982}{12}}{\frac{12,040}{14}}$$
-$$r^2_{adj} = 0.808$$
 
 ---
 ### យើងក៏ធ្វើលំហាត់នេះតាម R Program ផងដែរ 
